@@ -24,8 +24,6 @@ module.exports = function(app){
     })
     .catch( e => console.log(e));
 
-
-
     // view engine setup
     app.set('views', path.join(__dirname, 'views'));
     app.set('view engine', 'ejs');

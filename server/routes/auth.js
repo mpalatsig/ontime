@@ -1,15 +1,14 @@
 const express = require('express');
 const passport = require('passport');
 const bcrypt = require('bcrypt');
-
-// Our user model
 const User = require('../models/User');
-
 const authRoutes = express.Router();
+
 
 function returnMessage(message){
   return (req,res,next) => res.status(500).json({error:true, message:message});
 }
+
 authRoutes.get('/signup',returnMessage("This should be a POST"));
 authRoutes.post('/signup', (req, res, next) => {
   const {
@@ -57,6 +56,7 @@ authRoutes.post('/signup', (req, res, next) => {
   });
 });
 
+
 /* Login route: Logs the user in having a username and a password. Uses local strategy from passport */
 authRoutes.get('/login',returnMessage("This should be a POST"));
 authRoutes.post('/login', (req, res, next) => {
@@ -87,13 +87,13 @@ authRoutes.post('/login', (req, res, next) => {
 });
 
 
-
 /* User authenticated Middleware: Returns JSON ERROR */
 function ensureLoginOrJsonError(error = "Unauthorized") {
   return (req, res, next) => req.isAuthenticated() ? next() : res.status(403).json({
     error: error
   });
 }
+
 
 /* Logout route: remember this is a GET! */
 authRoutes.get('/logout', ensureLoginOrJsonError("User is not logged in"), (req, res, next) => {
@@ -103,10 +103,12 @@ authRoutes.get('/logout', ensureLoginOrJsonError("User is not logged in"), (req,
   });
 });
 
+
 /* Check if user is logged in and returns the user or shows error as JSON instead*/
 authRoutes.get('/loggedin', ensureLoginOrJsonError(), (req, res, next) => {
   return res.status(200).json(req.user);
 });
+
 
 /* Secret route */
 authRoutes.get('/private', ensureLoginOrJsonError(), (req, res, next) => {

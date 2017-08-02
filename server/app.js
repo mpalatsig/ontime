@@ -9,8 +9,15 @@ require('./config/passport/local')(passport);
 require('./config/express')(app);
 require('./config/cors')(app);
 
+
 const authRoutes = require('./routes/auth');
 app.use('/api/auth', authRoutes);
+
+const eventsApi = require('./routes/eventsApi');
+app.use('/api', eventsApi);
+
+
+
 
 app.use((req, res, next) => {
   res.sendfile(__dirname + '/public/index.html');

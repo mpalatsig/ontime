@@ -2,10 +2,22 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const eventSchema = new Schema({
-  gCalendarID: String,
-  summary: String,
-  description: String,
-  team: String, // this should be a ref to Team
+  gCalendarID: {
+    type: String,
+    default: ''
+  },
+  summary: {
+    type: String,
+    default: ''
+  },
+  description: {
+    type: String,
+    default: ''
+  },
+  team: {
+    type: String, // this should be a ref to Team
+    default: ''
+  },
   userOrganizer: String, // this should be a ref to User
   attendees: String, // this should be an array of refs to User
 }, {
