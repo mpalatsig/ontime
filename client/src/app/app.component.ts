@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { SessionService } from '../services/session.service';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -11,5 +12,6 @@ export class AppComponent {
 
   logout(){
     this.session.logout().subscribe();
+    console.log("user has logged out")
   }
 }
