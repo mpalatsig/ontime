@@ -7,7 +7,9 @@
   <button (click)="logout()">Logout</button>
 </div> -->
 
+
 <div *ngIf="session.user && session.startLoginCompleted">
+  <h3> Hi, {{ session.user.username }}, you are logged in</h3>
   <button (click)="logout()">Logout</button>
 </div>
 

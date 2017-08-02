@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { SessionService } from '../services/session.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -8,10 +9,11 @@ import { SessionService } from '../services/session.service';
 })
 export class AppComponent {
   title = 'app';
-  constructor(private session:SessionService){ }
+  constructor(private session:SessionService, private router: Router){ }
 
   logout(){
     this.session.logout().subscribe();
+    this.router.navigate(['/login']);
     console.log("user has logged out")
   }
 }
