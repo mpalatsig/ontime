@@ -12,6 +12,7 @@ import { LoginFormComponent } from './login-form/login-form.component';
 import { SignupFormComponent } from './signup-form/signup-form.component';
 import { HomeComponent } from './home/home.component';
 import { EventsListComponent } from './events-list/events-list.component';
+import { NewEventFormComponent } from './new-event-form/new-event-form.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { EventsListComponent } from './events-list/events-list.component';
     LoginFormComponent,
     SignupFormComponent,
     HomeComponent,
-    EventsListComponent
+    EventsListComponent,
+    NewEventFormComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,20 @@
+<div>
+  <h1>New Event</h1>
+</div>
+<form enctype="multipart/form-data">
+  <div>
+    <div>
+      <label for="title">Title for the Event</label>
+      <input id="title" type="text" name="title" [(ngModel)]="summary" required>
+    </div>
+  </div>
+  <div>
+    <div>
+      <label for="description">Descripcion</label>
+      <textarea id="description" type="text" name="description" [(ngModel)]="description"></textarea>
+    </div>
+  </div>
+  <div>
+    <button (click)="newEvent()" type="submit" name="action">Submit</button>
+  </div>
+</form>

@@ -19,10 +19,10 @@ export class EventService {
        .map((res) => res.json());
    }
 
-  //  newEvent() {
-  //    return this.http.post(`${this.BASE_URL}/api/events`)
-  //      .map((res) => res.json());
-  //  }
+   newEvent(summary, description) {
+     return this.http.post(`${this.BASE_URL}/api/events`,{summary,description})
+       .map((res) => res.json());
+   }
 
    getEvent(id) {
      return this.http.get(`${this.BASE_URL}/api/events/${id}`)
