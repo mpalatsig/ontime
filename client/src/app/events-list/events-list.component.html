@@ -8,6 +8,6 @@
   <div *ngFor="let event of events | async" class="blocky">
     <h3> {{ event.summary }} </h3>
     <p> {{ event.description }} </p>
-    <a [routerLink]="['event', event._id]"> View Details </a>
+    <a [routerLink]="['/event', event._id]"> View Details </a>
   </div>
 </div>

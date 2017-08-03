@@ -1,8 +1,12 @@
+<p>
+  edit-event works!
+</p>
+
 <div>
   <a [routerLink]="['/home']"> Go Back to Events </a>
 </div>
 <div>
-  <h1>New Event</h1>
+  <h1>Edit Event</h1>
 </div>
 <form enctype="multipart/form-data">
   <div>
@@ -18,6 +22,6 @@
     </div>
   </div>
   <div>
-    <button (click)="newEvent()" type="submit" name="action">Submit</button>
+    <button (click)="editEvent()" type="submit" name="action">Edit</button>
   </div>
 </form>

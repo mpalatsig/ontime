@@ -13,6 +13,7 @@ import { SignupFormComponent } from './signup-form/signup-form.component';
 import { HomeComponent } from './home/home.component';
 import { EventsListComponent } from './events-list/events-list.component';
 import { NewEventFormComponent } from './new-event-form/new-event-form.component';
+import { EditEventComponent } from './edit-event/edit-event.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { NewEventFormComponent } from './new-event-form/new-event-form.component
     SignupFormComponent,
     HomeComponent,
     EventsListComponent,
-    NewEventFormComponent
+    NewEventFormComponent,
+    EditEventComponent
   ],
   imports: [
     BrowserModule,
