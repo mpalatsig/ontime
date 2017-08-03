@@ -22,6 +22,9 @@ app.use('/api', usersApi);
 const penaltiesApi = require('./routes/penaltiesApi');
 app.use('/api', penaltiesApi);
 
+const teamsApi = require('./routes/teamsApi');
+app.use('/api', teamsApi);
+
 
 
 
