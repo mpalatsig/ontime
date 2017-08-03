@@ -13,12 +13,13 @@ authRoutes.get('/signup',returnMessage("This should be a POST"));
 authRoutes.post('/signup', (req, res, next) => {
   const {
     username,
-    password
+    password,
+    email
   } = req.body;
 
-  if (!username || !password) {
+  if (!username || !password || !email) {
     res.status(400).json({
-      message: 'Provide username and password'
+      message: 'Provide username, password and email'
     });
     return;
   }
@@ -38,6 +39,7 @@ authRoutes.post('/signup', (req, res, next) => {
 
     const theUser = new User({
       username,
+      email,
       password: hashPass
     }).save().then(user => {
       req.login(user, (err) => {
