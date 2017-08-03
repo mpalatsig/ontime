@@ -16,6 +16,9 @@ app.use('/api/auth', authRoutes);
 const eventsApi = require('./routes/eventsApi');
 app.use('/api', eventsApi);
 
+const usersApi = require('./routes/usersApi');
+app.use('/api', usersApi);
+
 
 
 

@@ -10,7 +10,7 @@ const userSchema = new Schema({
   activePenaltyPoints: Number,
   paidPenaltyPoints: Number,
   hourlyRate: Number,
-  currency: Number,
+  currency: String,
 }, {
   timestamps: {
     createdAt: 'created_at',
