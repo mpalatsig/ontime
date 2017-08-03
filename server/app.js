@@ -19,6 +19,9 @@ app.use('/api', eventsApi);
 const usersApi = require('./routes/usersApi');
 app.use('/api', usersApi);
 
+const penaltiesApi = require('./routes/penaltiesApi');
+app.use('/api', penaltiesApi);
+
 
 
 
