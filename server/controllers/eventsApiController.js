@@ -44,6 +44,8 @@ edit: (req,res,next) => {
      summary: req.body.summary,
      description: req.body.description,
    };
+   console.log(updates);
+   console.log(req.params);
     Event.findByIdAndUpdate(req.params.id, updates).then(event =>{
       res.json(event);
     })
