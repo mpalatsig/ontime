@@ -5,9 +5,23 @@ const EventUserRelation = require('../models/EventUserRelation');
 module.exports = {
   /* GET events listing */
   index: (req,res,next) => {
-    EventUserRelation.find({userID:"598308415b762a8d0f1881c8"}).then(eventUserRelations => {
-
-      res.json(eventUserRelations);
+    var id = req.user._id
+    // console.log(id)
+    EventUserRelation.find({userID: id}).exec().then(eventUserRelations => {
+      eventsPromise = [];
+      eventUserRelations.forEach(e => {
+        eventsPromise.push(
+          new Promise((resolve, reject) => {
+            e.populate('eventID', (err, eventPopulated) => {
+              resolve(eventPopulated);
+            });
+          })
+        );
+      });
+      Promise.all(eventsPromise).then(data => {
+        console.log(data);
+        res.status(200).json(data);
+      });
     })
     .catch( e => res.json(e));
 },

@@ -4,10 +4,10 @@
   <button type="button" name="button" [routerLink]="['/newevent']">Create New Event</button>
 </div>
 
-<div>
-  <div *ngFor="let event of events | async" class="blocky">
-    <h3> {{ event.summary }} </h3>
-    <p> {{ event.description }} </p>
-    <a [routerLink]="['/event', event._id]"> View Details </a>
+<div *ngIf="(events)">
+  <div  *ngFor="let event of events" class="blocky">
+    <h3> {{ event.eventID.summary }} </h3>
+    <p> {{ event.eventID.description }} </p>
+    <a [routerLink]="['/event', event.eventID._id]"> View Details </a>
   </div>
 </div>

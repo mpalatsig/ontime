@@ -30,7 +30,6 @@ export class EventService {
    }
 
    editEvent(event,formInfo) {
-     console.log(event);
      return this.http.put(`${this.BASE_URL}/api/events/${event._id}`, formInfo)
        .map((res) => res.json());
    }

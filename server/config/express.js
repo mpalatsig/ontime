@@ -7,6 +7,7 @@ const logger = require('morgan');
 const path = require('path');
 const passport = require('passport');
 const session = require("express-session");
+const MongoStore = require("connect-mongo")(session)
 const mongoose = require('mongoose');
 const config = require('./config');
 
@@ -44,6 +45,7 @@ module.exports = function(app){
       secret: 'angular auth passport secret shh ontime',
       resave: true,
       saveUninitialized: true,
+      store: new MongoStore({mongooseConnection: mongoose.connection}),
       cookie : { httpOnly: true, maxAge: 2419200000 }
     }));
 
