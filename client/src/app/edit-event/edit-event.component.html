@@ -1,18 +1,15 @@
-<p>
-  edit-event works!
-</p>
-
+<div *ngIf ="event">
 <div>
   <a [routerLink]="['/home']"> Go Back to Events </a>
 </div>
 <div>
-  <h1>Edit Event</h1>
+  <h1>Edit {{event.summary}} Event</h1>
 </div>
 <form enctype="multipart/form-data">
   <div>
     <div>
-      <label for="title">Title for the Event</label>
-      <input id="title" type="text" name="title" [(ngModel)]="formInfo.summary" required>
+      <label for="title">Title for the event</label>
+      <input id="title" type="text" name="title"  [(ngModel)]="formInfo.summary">
     </div>
   </div>
   <div>
@@ -24,4 +21,9 @@
   <div>
     <button (click)="editEvent()" type="submit" name="action">Edit</button>
   </div>
+  <div>
+    <button (click)="deleteEvent()" type="submit" name="action">Delete</button>
+  </div>
+
 </form>
+</div>
