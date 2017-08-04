@@ -13,6 +13,11 @@ este es el componente principal
   <button (click)="logout()">Logout</button>
 </div>
 
+<div *ngIf="!session.user">
+  <button [routerLink]="['/login']">Login</button>
+  <button [routerLink]="['/signup']">Signup</button>
+</div>
+
 </div>
 
 <router-outlet></router-outlet>

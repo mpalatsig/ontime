@@ -25,7 +25,7 @@ export class NewEventFormComponent implements OnInit {
   }
 
   newEvent() {
-    this.eventService.newEvent(this.summary,this.description)
+    this.eventService.newEvent(this.summary,this.description,this.attendees)
     .subscribe(
       (event) => console.log(event),
       (err) => this.error = err

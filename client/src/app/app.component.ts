@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
   title = 'app';
+
   constructor(private session:SessionService, private router: Router){ }
 
   logout(){
@@ -16,4 +17,6 @@ export class AppComponent {
     this.router.navigate(['/login']);
     console.log("user has logged out")
   }
+
+
 }

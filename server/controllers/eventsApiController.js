@@ -1,11 +1,13 @@
 const User = require('../models/User');
 const Event = require('../models/Event');
+const EventUserRelation = require('../models/EventUserRelation');
 
 module.exports = {
   /* GET events listing */
   index: (req,res,next) => {
-    Event.find({}).then(events =>{
-      res.json(events);
+    EventUserRelation.find({userID:"598308415b762a8d0f1881c8"}).then(eventUserRelations => {
+
+      res.json(eventUserRelations);
     })
     .catch( e => res.json(e));
 },
@@ -21,12 +23,22 @@ module.exports = {
     attendees: req.body.attendees,
   });
   event.save().then(event => {
-			res.status(201).json({
-        message: 'New event created!',
-        id: event._id,
-        summary: event.summary
+    const attendees = req.body.attendees.split(" ");
+    attendees.forEach( attendee => {
+      User.findOne({email: attendee}, (err,attendeFound) => {
+        if(attendeFound !== null) {
+          const eventUserRelation = new EventUserRelation({
+            eventID: event._id,
+            userID: attendeFound._id
+          });
+          eventUserRelation.save();
+        }
       });
-	})
+    });
+        res.status(201).json({
+          message: 'New eventUserRelation created!',
+      });
+  })
   .catch( e => res.json(e));
 },
 

@@ -15,12 +15,12 @@ export class EventService {
    constructor(private http: Http) {}
 
    indexEvents() {
-     return this.http.get(`${this.BASE_URL}/api/events`)
+     return this.http.get(`${this.BASE_URL}/api/events`, {withCredentials: true})
        .map((res) => res.json());
    }
 
-   newEvent(summary, description) {
-     return this.http.post(`${this.BASE_URL}/api/events`,{summary,description})
+   newEvent(summary, description, attendees) {
+     return this.http.post(`${this.BASE_URL}/api/events`,{summary,description,attendees})
        .map((res) => res.json());
    }
 

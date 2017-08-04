@@ -18,6 +18,12 @@
     </div>
   </div>
   <div>
+    <div>
+      <label for="attendees">Attendees</label>
+      <input id="attendees" type="text" name="attendees" [(ngModel)]="attendees">
+    </div>
+  </div>
+  <div>
     <button (click)="newEvent()" type="submit" name="action">Submit</button>
   </div>
 </form>
