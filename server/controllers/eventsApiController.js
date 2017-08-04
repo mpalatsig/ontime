@@ -5,9 +5,7 @@ const EventUserRelation = require('../models/EventUserRelation');
 module.exports = {
   /* GET events listing */
   index: (req,res,next) => {
-    var id = req.user._id
-    // console.log(id)
-    EventUserRelation.find({userID: id}).exec().then(eventUserRelations => {
+    EventUserRelation.find({userID: req.user._id}).exec().then(eventUserRelations => {
       eventsPromise = [];
       eventUserRelations.forEach(e => {
         eventsPromise.push(
