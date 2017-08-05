@@ -23,20 +23,20 @@ export class EditEventComponent implements OnInit {
     attendees: ''
   };
 
-  constructor(private eventService: EventService, private session: SessionService,private route: ActivatedRoute, private router: Router) { }
+  constructor(private eventService: EventService, private session: SessionService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
     this.route.params
     .subscribe((params) => {
       this.eventService.getEvent(params.id).subscribe(result => {
-        this.event = result
-        this.formInfo.summary = this.event.summary
-        this.formInfo.description = this.event.description
+        this.event = result;
+        this.formInfo.summary = this.event.summary;
+        this.formInfo.description = this.event.description;
       })
     })
   }
 
-  editEvent(){
+  editEvent() {
     this.eventService.editEvent(this.event,this.formInfo)
     .subscribe(
       (event) => this.router.navigate(['/home']),

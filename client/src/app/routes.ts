@@ -7,6 +7,7 @@ import { NewEventFormComponent } from './new-event-form/new-event-form.component
 import { EditEventComponent } from './edit-event/edit-event.component';
 import { NewTeamFormComponent } from './new-team-form/new-team-form.component';
 import { TeamsListComponent } from './teams-list/teams-list.component';
+import { EditTeamComponent } from './edit-team/edit-team.component';
 
 
 export const routes: Routes = [
@@ -18,4 +19,5 @@ export const routes: Routes = [
   { path: 'event/:id', component: EditEventComponent },
   { path: 'newteam', component: NewTeamFormComponent },
   { path: 'teams', component: TeamsListComponent },
+  { path: 'team/:id', component: EditTeamComponent },
 ];

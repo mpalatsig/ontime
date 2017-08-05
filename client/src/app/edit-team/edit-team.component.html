@@ -1,0 +1,29 @@
+<div *ngIf ="team">
+<div>
+  <a [routerLink]="['/home']"> Go Back to Home </a>
+</div>
+<div>
+  <h1>Edit {{team.teamName}} team</h1>
+</div>
+<form enctype="multipart/form-data">
+  <div>
+    <div>
+      <label for="teamName">Name of the team</label>
+      <input id="teamName" type="text" name="teamName"  [(ngModel)]="formInfo.teamName">
+    </div>
+  </div>
+  <div>
+    <div>
+      <label for="members">Members</label>
+      <input id="members" type="text" name="members"  [(ngModel)]="formInfo.members">
+    </div>
+  </div>
+  <div>
+    <button (click)="editTeam()" type="submit" name="action">Edit</button>
+  </div>
+  <div>
+    <button (click)="deleteTeam()" type="submit" name="action">Delete</button>
+  </div>
+
+</form>
+</div>

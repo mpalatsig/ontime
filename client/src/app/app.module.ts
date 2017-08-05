@@ -17,6 +17,7 @@ import { NewEventFormComponent } from './new-event-form/new-event-form.component
 import { EditEventComponent } from './edit-event/edit-event.component';
 import { NewTeamFormComponent } from './new-team-form/new-team-form.component';
 import { TeamsListComponent } from './teams-list/teams-list.component';
+import { EditTeamComponent } from './edit-team/edit-team.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { TeamsListComponent } from './teams-list/teams-list.component';
     NewEventFormComponent,
     EditEventComponent,
     NewTeamFormComponent,
-    TeamsListComponent
+    TeamsListComponent,
+    EditTeamComponent
   ],
   imports: [
     BrowserModule,

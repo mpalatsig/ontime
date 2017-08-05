@@ -17,9 +17,9 @@ module.exports = {
           })
         );
       });
-      Promise.all(eventsPromise).then(data => {
-        console.log(data);
-        res.status(200).json(data);
+      Promise.all(eventsPromise).then(populatedEventsResolved => {
+        console.log(populatedEventsResolved);
+        res.status(200).json(populatedEventsResolved);
       });
     })
     .catch( e => res.json(e));

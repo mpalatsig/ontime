@@ -6,13 +6,6 @@ const TeamUserRelation = require('../models/TeamUserRelation');
 
 module.exports = {
   /* GET team listing where the current user is listed*/
-//   index: (req,res,next) => {
-//     Team.find({}).then(teams =>{
-//       res.json(teams);
-//     })
-//     .catch( e => res.json(e));
-// },
-
   index: (req,res,next) => {
     TeamUserRelation.find({userID: req.user._id})
     .exec().then(teamUserRelation => {
@@ -26,9 +19,9 @@ module.exports = {
           })
         );
       });
-      Promise.all(teamsPromise).then(data => {
-        console.log(data);
-        res.status(200).json(data);
+      Promise.all(teamsPromise).then(populatedTeamsResolved => {
+        console.log(populatedTeamsResolved);
+        res.status(200).json(populatedTeamsResolved);
       });
     })
     .catch(e => res.json(e));
