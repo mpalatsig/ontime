@@ -18,8 +18,25 @@ const eventSchema = new Schema({
     type: String, // this should be a ref to Team
     default: ''
   },
-  userOrganizer: String, // this should be a ref to User
-  attendees: String, // this should be an array of refs to User
+  userOrganizer: {
+    type: Schema.Types.ObjectId,
+    ref:'User',
+  }, 
+  attendees: {
+    type: [String],
+    default: ['']
+  }, // this should be an array of refs to User
+  startDate: {
+    type: Date,
+  },
+  endDate: {
+    type: Date,
+  },
+  status: {
+    type: Boolean,
+    default: false,
+  },
+
 }, {
   timestamps: {
     createdAt: 'created_at',

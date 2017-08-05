@@ -32,8 +32,8 @@ module.exports = {
     summary: req.body.summary,
     description: req.body.description,
     team: req.body.team,
-    userOrganizer: req.body.userOrganizer,
-    attendees: req.body.attendees,
+    userOrganizer: req.user._id,
+    attendees: req.body.attendees.split(","),
   });
   event.save().then(event => {
     const attendees = req.body.attendees.split(",");
