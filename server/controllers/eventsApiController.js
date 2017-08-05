@@ -3,7 +3,7 @@ const Event = require('../models/Event');
 const EventUserRelation = require('../models/EventUserRelation');
 
 module.exports = {
-  /* GET events listing */
+  /* GET events listing where a user is listed*/
   index: (req,res,next) => {
     EventUserRelation.find({userID: req.user._id}).exec().then(eventUserRelations => {
       eventsPromise = [];
