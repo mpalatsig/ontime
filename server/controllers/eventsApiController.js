@@ -36,7 +36,6 @@ module.exports = {
   });
   event.save().then(event => {
     const attendees = req.body.attendees.split(",");
-    console.log("Array de Attendees" + attendees);
     attendees.forEach( attendee => {
       User.findOne({email: attendee}, (err,attendeFound) => {
         if(attendeFound !== null) {

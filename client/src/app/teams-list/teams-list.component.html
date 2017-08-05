@@ -1,0 +1,17 @@
+<div>
+  <a [routerLink]="['/home']"> Go Back to Events </a>
+</div>
+
+<h3> My Teams List </h3>
+
+
+<div>
+  <button type="button" name="button" [routerLink]="['/newteam']">Create New Team</button>
+</div>
+
+<div *ngIf="(teams)">
+  <div  *ngFor="let team of teams" class="blocky">
+    <h3> {{ team.teamID.teamName }} </h3>
+    <a [routerLink]="['/team', team.teamID._id]"> View Details </a>
+  </div>
+</div>

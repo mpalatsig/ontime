@@ -14,7 +14,7 @@ export class NewTeamFormComponent implements OnInit {
   user:any;
   error:string;
   teamName:string;
-
+  members:string;
 
   constructor(private teamService: TeamService, private session: SessionService,private router: Router) { }
 
@@ -22,7 +22,7 @@ export class NewTeamFormComponent implements OnInit {
   }
 
   newTeam() {
-    this.teamService.newTeam(this.teamName)
+    this.teamService.newTeam(this.teamName, this.members)
     .subscribe(
       (team) => console.log(team),
       (err) => this.error = err

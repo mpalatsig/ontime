@@ -11,6 +11,12 @@
       <input id="title" type="text" name="teamName" [(ngModel)]="teamName" required>
     </div>
   </div>
+  <div>
+    <div>
+      <label for="members">Members</label>
+      <input id="members" type="text" name="members" [(ngModel)]="members">
+    </div>
+  </div>
 
   <div>
     <button (click)="newTeam()" type="submit" name="action">Create</button>

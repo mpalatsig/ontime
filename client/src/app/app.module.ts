@@ -16,6 +16,7 @@ import { EventsListComponent } from './events-list/events-list.component';
 import { NewEventFormComponent } from './new-event-form/new-event-form.component';
 import { EditEventComponent } from './edit-event/edit-event.component';
 import { NewTeamFormComponent } from './new-team-form/new-team-form.component';
+import { TeamsListComponent } from './teams-list/teams-list.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { NewTeamFormComponent } from './new-team-form/new-team-form.component';
     EventsListComponent,
     NewEventFormComponent,
     EditEventComponent,
-    NewTeamFormComponent
+    NewTeamFormComponent,
+    TeamsListComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +36,10 @@ import { NewTeamFormComponent } from './new-team-form/new-team-form.component';
     HttpModule,
     RouterModule.forRoot(routes),
   ],
-  providers: [SessionService, EventService, TeamService],
+  providers: [SessionService,
+    EventService,
+    TeamService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,6 +1,8 @@
 const User = require('../models/User');
 const Event = require('../models/Event');
 const Team = require('../models/Team');
+const TeamUserRelation = require('../models/TeamUserRelation');
+
 
 module.exports = {
   /* GET users listing */
@@ -15,10 +17,23 @@ module.exports = {
   new: (req, res, next) => {
   const team = new Team ({
     teamName: req.body.teamName,
+    members: req.body.members,
   });
-  team.save().then(user => {
+  team.save().then(team => {
+    const members = req.body.members.split(",");
+    members.forEach( member => {
+      User.findOne({email: member},(err,memberFound) => {
+        if(memberFound !== null) {
+          const teamUserRelation = new TeamUserRelation({
+            teamID: team._id,
+            userID: memberFound._id
+          });
+          teamUserRelation.save();
+        }
+      });
+    });
 			res.status(201).json({
-        message: 'New team created!',
+        message: 'New team & teamUserRelation created!',
         id: team._id,
         teamName: team.teamName,
       });

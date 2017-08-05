@@ -18,8 +18,8 @@ export class TeamService {
        .map((res) => res.json());
    }
 
-   newTeam(teamName) {
-     return this.http.post(`${this.BASE_URL}/api/teams`,{teamName}, this.options)
+   newTeam(teamName,members) {
+     return this.http.post(`${this.BASE_URL}/api/teams`,{teamName,members}, this.options)
        .map((res) => res.json());
    }
 
