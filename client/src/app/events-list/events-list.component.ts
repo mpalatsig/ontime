@@ -10,7 +10,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./events-list.component.css']
 })
 
-
 export class EventsListComponent implements OnInit {
   events:Observable<Array<object>>;
   user:any;

@@ -5,15 +5,36 @@ const TeamUserRelation = require('../models/TeamUserRelation');
 
 
 module.exports = {
-  /* GET users listing */
+  /* GET team listing where the current user is listed*/
+//   index: (req,res,next) => {
+//     Team.find({}).then(teams =>{
+//       res.json(teams);
+//     })
+//     .catch( e => res.json(e));
+// },
+
   index: (req,res,next) => {
-    Team.find({}).then(teams =>{
-      res.json(teams);
+    TeamUserRelation.find({userID: req.user._id})
+    .exec().then(teamUserRelation => {
+      let teamsPromise = [];
+      teamUserRelation.forEach(e => {
+        teamsPromise.push(
+          new Promise((resolve,reject) => {
+            e.populate('teamID',(err,teamPopulated) => {
+              resolve(teamPopulated);
+            });
+          })
+        );
+      });
+      Promise.all(teamsPromise).then(data => {
+        console.log(data);
+        res.status(200).json(data);
+      });
     })
-    .catch( e => res.json(e));
+    .catch(e => res.json(e));
 },
 
-  /* POST new user */
+  /* POST new team and create a teamUserRelation*/
   new: (req, res, next) => {
   const team = new Team ({
     teamName: req.body.teamName,

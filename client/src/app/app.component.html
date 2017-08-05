@@ -18,6 +18,10 @@ este es el componente principal
   <button [routerLink]="['/signup']">Signup</button>
 </div>
 
+<div *ngIf="session.user && session.startLoginCompleted">
+  <button [routerLink]="['/teams']">My Teams</button>
+</div>
+
 </div>
 
 <router-outlet></router-outlet>

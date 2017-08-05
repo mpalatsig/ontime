@@ -3,9 +3,10 @@ const Event = require('../models/Event');
 const EventUserRelation = require('../models/EventUserRelation');
 
 module.exports = {
-  /* GET events listing where a user is listed*/
+  /* GET events listing where the current user is listed*/
   index: (req,res,next) => {
-    EventUserRelation.find({userID: req.user._id}).exec().then(eventUserRelations => {
+    EventUserRelation.find({userID: req.user._id})
+    .exec().then(eventUserRelations => {
       eventsPromise = [];
       eventUserRelations.forEach(e => {
         eventsPromise.push(
@@ -24,7 +25,7 @@ module.exports = {
     .catch( e => res.json(e));
 },
 
-  /* POST new event */
+  /* POST new event and create a eventUserRelation*/
   new: (req, res, next) => {
   const event = new Event ({
     gCalendarID: req.body.gCalendarID,
