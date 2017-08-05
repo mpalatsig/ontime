@@ -5,6 +5,8 @@ import { HomeComponent } from './home/home.component';
 import { EventsListComponent } from './events-list/events-list.component';
 import { NewEventFormComponent } from './new-event-form/new-event-form.component';
 import { EditEventComponent } from './edit-event/edit-event.component';
+import { NewTeamFormComponent } from './new-team-form/new-team-form.component';
+
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -12,5 +14,6 @@ export const routes: Routes = [
   { path: 'login', component: LoginFormComponent },
   { path: 'home', component: EventsListComponent },
   { path: 'newevent', component: NewEventFormComponent },
-  { path: 'event/:id', component: EditEventComponent }
+  { path: 'event/:id', component: EditEventComponent },
+  { path: 'newteam', component: NewTeamFormComponent },
 ];

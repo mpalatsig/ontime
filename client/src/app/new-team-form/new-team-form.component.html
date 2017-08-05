@@ -1,0 +1,18 @@
+<div>
+  <a [routerLink]="['/home']"> Go Back to Events </a>
+</div>
+<div>
+  <h1>Create a New Team</h1>
+</div>
+<form enctype="multipart/form-data">
+  <div>
+    <div>
+      <label for="title">Name of the Team</label>
+      <input id="title" type="text" name="teamName" [(ngModel)]="teamName" required>
+    </div>
+  </div>
+
+  <div>
+    <button (click)="newTeam()" type="submit" name="action">Create</button>
+  </div>
+</form>

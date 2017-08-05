@@ -1,4 +1,3 @@
-
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import 'rxjs/add/operator/map';
@@ -6,37 +5,36 @@ import 'rxjs/add/operator/catch';
 import { Observable } from 'rxjs/Rx';
 import { environment } from '../environments/environment';
 
-
 @Injectable()
-export class EventService {
+export class TeamService {
    BASE_URL:string =`${environment.BASE_URL}`;
    options:object = {withCredentials:true};
 
 
    constructor(private http: Http) {}
 
-   indexEvents() {
-     return this.http.get(`${this.BASE_URL}/api/events`, this.options)
+   indexTeams() {
+     return this.http.get(`${this.BASE_URL}/api/teams`, this.options)
        .map((res) => res.json());
    }
 
-   newEvent(summary, description, attendees) {
-     return this.http.post(`${this.BASE_URL}/api/events`,{summary,description,attendees}, this.options)
+   newTeam(teamName) {
+     return this.http.post(`${this.BASE_URL}/api/teams`,{teamName}, this.options)
        .map((res) => res.json());
    }
 
-   getEvent(id) {
-     return this.http.get(`${this.BASE_URL}/api/events/${id}`, this.options)
+   getTeam(id) {
+     return this.http.get(`${this.BASE_URL}/api/teams/${id}`, this.options)
        .map((res) => res.json());
    }
 
-   editEvent(event,formInfo) {
-     return this.http.put(`${this.BASE_URL}/api/events/${event._id}`, formInfo, this.options)
+   editTeam(event,formInfo) {
+     return this.http.put(`${this.BASE_URL}/api/teams/${event._id}`, formInfo, this.options)
        .map((res) => res.json());
    }
 
-   deleteEvent(id) {
-     return this.http.delete(`${this.BASE_URL}/api/events/${id}`, this.options)
+   deleteTeam(id) {
+     return this.http.delete(`${this.BASE_URL}/api/teams/${id}`, this.options)
        .map((res) => res.json());
    }
 

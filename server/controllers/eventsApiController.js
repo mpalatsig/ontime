@@ -35,7 +35,8 @@ module.exports = {
     attendees: req.body.attendees,
   });
   event.save().then(event => {
-    const attendees = req.body.attendees.split(" ");
+    const attendees = req.body.attendees.split(",");
+    console.log("Array de Attendees" + attendees);
     attendees.forEach( attendee => {
       User.findOne({email: attendee}, (err,attendeFound) => {
         if(attendeFound !== null) {
@@ -48,7 +49,7 @@ module.exports = {
       });
     });
         res.status(201).json({
-          message: 'New eventUserRelation created!',
+          message: 'New event & eventUserRelation created!',
       });
   })
   .catch( e => res.json(e));

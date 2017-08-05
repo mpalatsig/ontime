@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { SessionService } from '../services/session.service';
 import { EventService } from '../services/event.service';
+import { TeamService } from '../services/team.service';
 import { AppComponent } from './app.component';
 import { routes } from './routes';
 import { HttpModule } from '@angular/http';
@@ -14,6 +15,7 @@ import { HomeComponent } from './home/home.component';
 import { EventsListComponent } from './events-list/events-list.component';
 import { NewEventFormComponent } from './new-event-form/new-event-form.component';
 import { EditEventComponent } from './edit-event/edit-event.component';
+import { NewTeamFormComponent } from './new-team-form/new-team-form.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,8 @@ import { EditEventComponent } from './edit-event/edit-event.component';
     HomeComponent,
     EventsListComponent,
     NewEventFormComponent,
-    EditEventComponent
+    EditEventComponent,
+    NewTeamFormComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +34,7 @@ import { EditEventComponent } from './edit-event/edit-event.component';
     HttpModule,
     RouterModule.forRoot(routes),
   ],
-  providers: [SessionService, EventService],
+  providers: [SessionService, EventService, TeamService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

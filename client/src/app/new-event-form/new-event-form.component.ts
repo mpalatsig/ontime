@@ -19,6 +19,7 @@ export class NewEventFormComponent implements OnInit {
   attendees:string;
 
 
+
   constructor(private eventService: EventService, private session: SessionService,private router: Router) { }
 
   ngOnInit() {

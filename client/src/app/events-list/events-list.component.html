@@ -4,6 +4,10 @@
   <button type="button" name="button" [routerLink]="['/newevent']">Create New Event</button>
 </div>
 
+<div>
+  <button type="button" name="button" [routerLink]="['/newteam']">Create New Team</button>
+</div>
+
 <div *ngIf="(events)">
   <div  *ngFor="let event of events" class="blocky">
     <h3> {{ event.eventID.summary }} </h3>

@@ -52,4 +52,11 @@ export class EditEventComponent implements OnInit {
     );
   }
 
+  // startEvent() {
+  //   this.eventService.startEvent(-------) // ver como si hay que pasar algún parametro o falta algo en la parte de subscribe
+  //   .subscribe(
+  //     (err) =>  this.error = err
+  //   )
+  // }
+
 }
