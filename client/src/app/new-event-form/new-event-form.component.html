@@ -25,8 +25,8 @@
   </div>
   <div>
     <label for="teamsav">Team of the event</label>
-    <select >
-      <option *ngFor="let availableTeamEvent of availableTeamsEvent" [value]="availableTeamEvent">{{ availableTeamEvent.teamID.teamName }}</option>
+    <select class="form-control" id=teams [(ngModel)]="team" name="team">
+      <option *ngFor="let availableTeamEvent of availableTeamsEvent" [ngValue]="availableTeamEvent.teamID._id" #teamValue >{{ availableTeamEvent.teamID.teamName }}</option>
     </select>
   </div>
   <div>
@@ -34,10 +34,10 @@
   </div>
 </form>
 
-<div >
+<!-- <div >
   <ul>
     <li *ngFor="let availableTeamEvent of availableTeamsEvent">
     <p>{{ availableTeamEvent.teamID.teamName }}</p>
   </li>
   </ul>
-</div>
+</div> -->

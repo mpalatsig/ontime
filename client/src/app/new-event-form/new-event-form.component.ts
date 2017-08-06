@@ -30,16 +30,17 @@ export class NewEventFormComponent implements OnInit {
   ngOnInit() {
     this.teamService.indexTeams()
     .subscribe(
-      (teams => {
-      this.availableTeamsEvent = teams
-      console.log(this.availableTeamsEvent)
-      // this.availableTeamsEvent = this.availableTeamsEvent[0].teamID.teamName
-      // console.log(this.availableTeamsEvent)
+      (teamsAvailable => {
+      this.availableTeamsEvent = teamsAvailable
+      console.log(teamsAvailable)
     }),
     (err => console.log(err)))
   }
 
   newEvent() {
+    console.log(`esto es lo que se graba en availableTeam: ${this.availableTeamsEvent[0]}`)
+    console.log(`esto es lo que se graba en team: ${this.team}`)
+    // this.team = this.availableTeamsEvent
     this.eventService.newEvent(
       this.summary,
       this.description,
