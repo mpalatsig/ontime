@@ -65,10 +65,10 @@ export class SessionService {
       .catch(this.handleError);
   }
 
-  getPrivateData():Observable<object>{
-    return this.http.get(`${this.BASE_URL}/private`, this.options)
-      .map(res => res.json())
-      .catch(this.handleError);
-  }
+  // getPrivateData():Observable<object>{
+  //   return this.http.get(`${this.BASE_URL}/private`, this.options)
+  //     .map(res => res.json())
+  //     .catch(this.handleError);
+  // }
 
 }

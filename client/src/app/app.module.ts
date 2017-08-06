@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { SessionService } from '../services/session.service';
 import { EventService } from '../services/event.service';
 import { TeamService } from '../services/team.service';
+import { PenaltyService } from '../services/penalty.service';
 import { AppComponent } from './app.component';
 import { routes } from './routes';
 import { HttpModule } from '@angular/http';
@@ -18,6 +19,7 @@ import { EditEventComponent } from './edit-event/edit-event.component';
 import { NewTeamFormComponent } from './new-team-form/new-team-form.component';
 import { TeamsListComponent } from './teams-list/teams-list.component';
 import { EditTeamComponent } from './edit-team/edit-team.component';
+import { ActiveEventComponent } from './active-event/active-event.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,8 @@ import { EditTeamComponent } from './edit-team/edit-team.component';
     EditEventComponent,
     NewTeamFormComponent,
     TeamsListComponent,
-    EditTeamComponent
+    EditTeamComponent,
+    ActiveEventComponent
   ],
   imports: [
     BrowserModule,
@@ -41,6 +44,7 @@ import { EditTeamComponent } from './edit-team/edit-team.component';
   providers: [SessionService,
     EventService,
     TeamService,
+    PenaltyService,
   ],
   bootstrap: [AppComponent]
 })

@@ -11,7 +11,7 @@ import { environment } from '../environments/environment';
 export class EventService {
    BASE_URL:string =`${environment.BASE_URL}`;
    options:object = {withCredentials:true};
-
+   count:number = 0;
 
    constructor(private http: Http) {}
 
@@ -48,5 +48,13 @@ export class EventService {
        .map((res) => res.json());
    }
 
+   startEventCounter() {
+    //  this.count++;
+    //  console.log(`Count is now ${this.count}`);
+   }
+
+   stopEventCounter() {
+
+   }
 
 }

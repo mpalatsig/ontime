@@ -8,18 +8,18 @@ const eventSchema = new Schema({
   },
   summary: {
     type: String,
-    default: ''
+    default: 'New Event'
   },
   description: {
     type: String,
     default: ''
   },
   team: {
-    type: Schema.Types.ObjectId,
+    type: Schema.Types.ObjectId, 
     ref:'Team',
   },
   userOrganizer: {
-    type: Schema.Types.ObjectId, //<---- works!!
+    type: Schema.Types.ObjectId,
     ref:'User',
   },
   attendees: [Schema.Types.Mixed], // this should be an array of refs to User when the schema type is User

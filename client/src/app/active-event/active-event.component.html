@@ -1,0 +1,38 @@
+<div *ngIf="event">
+  <div>
+    <a [routerLink]="['/home']"> Go Back to Events </a>
+  </div>
+  <div>
+    <h1> Active event: {{event.summary}}</h1>
+  </div>
+  <form enctype="multipart/form-data">
+
+    <div>
+      <p for="date-name-input"> Started at {{event.startDate}}</p>
+
+    </div>
+    <div>
+      <p for="date-name-input"> End Date at {{event.endDate}}</p>
+    </div>
+    <div>
+      <div>
+        <p>Description</p>
+        <p>{{event.description}}</p>
+      </div>
+    </div>
+    <div>
+      <div> Attendees:
+        <ul>
+          <li *ngFor="let attendee of attendees"> {{ attendee }} </li>
+        </ul>
+      </div>
+    </div>
+    <div>
+      <button (click)="startEvent()" type="submit" name="action">Start Event</button>
+    </div>
+    <div>
+      <button (click)="deleteEvent()" type="submit" name="action">Finish Event</button>
+    </div>
+
+  </form>
+</div>

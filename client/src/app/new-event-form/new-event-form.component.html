@@ -12,6 +12,14 @@
     </div>
   </div>
   <div>
+      <label for="date-name-input"> Start Date</label>
+      <input type="datetime-local" name="startDate" class="form-control" placeholder="From" [(ngModel)]="startDate">
+    </div>
+    <div>
+      <label for="date-name-input"> End Date</label>
+      <input type="datetime-local" name="endDate" class="form-control" placeholder="Until" [(ngModel)]="endDate">
+    </div>
+  <div>
     <div>
       <label for="description">Descripcion</label>
       <textarea id="description" type="text" name="description" [(ngModel)]="description"></textarea>
@@ -33,11 +41,3 @@
     <button (click)="newEvent()" type="submit" name="action">Submit</button>
   </div>
 </form>
-
-<!-- <div >
-  <ul>
-    <li *ngFor="let availableTeamEvent of availableTeamsEvent">
-    <p>{{ availableTeamEvent.teamID.teamName }}</p>
-  </li>
-  </ul>
-</div> -->
