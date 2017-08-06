@@ -20,8 +20,16 @@ export class EventService {
        .map((res) => res.json());
    }
 
-   newEvent(summary, description, attendees) {
-     return this.http.post(`${this.BASE_URL}/api/events`,{summary,description,attendees}, this.options)
+   newEvent(summary, description, team, attendees, startDate, endDate, status) {
+     return this.http.post(`${this.BASE_URL}/api/events`,{
+       summary,
+       description,
+       team,
+       attendees,
+       startDate,
+       endDate,
+       status,
+     }, this.options)
        .map((res) => res.json());
    }
 

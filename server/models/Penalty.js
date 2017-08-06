@@ -2,11 +2,29 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const penaltySchema = new Schema({
-  payer: String, // this should be a ref to User
-  eventID: String, // this should be a ref to Event
-  currencyUnit: String, 
-  currencyUnitAmount: Number,
-  totalPenalty: Number
+  payer: {
+    type: Schema.Types.ObjectId,
+    ref:'User',
+  },
+  eventID: {
+    type: Schema.Types.ObjectId,
+    ref:'Event',
+  },
+  teamID: {
+    type: Schema.Types.ObjectId,
+    ref:'Team'
+  },
+  currencyUnit: {
+    type: String,
+    default: 'EUR'
+  },
+  currencyUnitAmount: {
+    type: Number,
+    default: 1
+  },
+  totalPenalty: {
+    type: Number
+  }
 
 }, {
   timestamps: {

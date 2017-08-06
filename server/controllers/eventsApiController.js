@@ -1,6 +1,7 @@
 const User = require('../models/User');
 const Event = require('../models/Event');
 const EventUserRelation = require('../models/EventUserRelation');
+const Team = require('../models/Team');
 
 module.exports = {
   /* GET events listing where the current user is listed*/
@@ -34,6 +35,9 @@ module.exports = {
     team: req.body.team,
     userOrganizer: req.user._id,
     attendees: req.body.attendees.split(","),
+    startDate: req.body.startDate,
+    endDate: req.body.endDate,
+    status: req.body.status,
   });
   event.save().then(event => {
     const attendees = req.body.attendees.split(",");
