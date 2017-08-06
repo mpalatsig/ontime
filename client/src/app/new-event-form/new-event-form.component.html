@@ -24,17 +24,20 @@
     </div>
   </div>
   <div>
-    <div>
-      <label for="team">Team</label>
-      <input id="team" type="text" name="team" [(ngModel)]="availableTeamsEvent">
-    </div>
+    <label for="teamsav">Team of the event</label>
+    <select >
+      <option *ngFor="let availableTeamEvent of availableTeamsEvent" [value]="availableTeamEvent">{{ availableTeamEvent.teamID.teamName }}</option>
+    </select>
   </div>
   <div>
     <button (click)="newEvent()" type="submit" name="action">Submit</button>
   </div>
 </form>
 
-
-<!-- <select *ngFor"let availableTeamEvent of availableTeamsEvent">
-  <option value="{{ availableTeamEvent.teamID.teamName }}">{{ availableTeamEvent.teamID.teamName }}</option>
-</select> -->
+<div >
+  <ul>
+    <li *ngFor="let availableTeamEvent of availableTeamsEvent">
+    <p>{{ availableTeamEvent.teamID.teamName }}</p>
+  </li>
+  </ul>
+</div>
