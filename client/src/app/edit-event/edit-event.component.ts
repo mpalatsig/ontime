@@ -22,6 +22,8 @@ export class EditEventComponent implements OnInit {
     attendees: '',
     startDate: '',
     endDate: '',
+    status: '',
+    penaltyAmount:'',
   };
 
   constructor(
@@ -42,6 +44,8 @@ export class EditEventComponent implements OnInit {
         this.formInfo.attendees = this.event.attendees;
         this.formInfo.startDate = this.event.startDate;
         this.formInfo.endDate = this.event.endDate;
+        this.formInfo.status = this.event.status;
+        this.formInfo.penaltyAmount = this.event.penaltyAmount;
       })
     })
   }

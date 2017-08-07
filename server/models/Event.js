@@ -15,7 +15,7 @@ const eventSchema = new Schema({
     default: ''
   },
   team: {
-    type: Schema.Types.ObjectId, 
+    type: Schema.Types.ObjectId,
     ref:'Team',
   },
   userOrganizer: {
@@ -32,6 +32,10 @@ const eventSchema = new Schema({
   status: {
     type: Boolean,
     default: false,
+  },
+  penaltyAmount: {
+    type: Number,
+    default: 1,
   },
 
 }, {

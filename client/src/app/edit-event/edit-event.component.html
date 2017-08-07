@@ -13,11 +13,11 @@
     </div>
   </div>
   <div>
-      <label for="date-name-input"> Start Date</label>
+      <label for="date-name-input"> Current Starting Date: {{event.startDate | date: 'dd/MM/yyyy' }}, New Start Date: </label>
       <input type="datetime-local" name="startDate" class="form-control" placeholder="From" [(ngModel)]="formInfo.startDate">
     </div>
     <div>
-      <label for="date-name-input"> End Date</label>
+      <label for="date-name-input"> Current Finish Date {{event.endDate  | date: 'dd/MM/yyyy' }}, New End Date</label>
       <input type="datetime-local" name="endDate" class="form-control" placeholder="Until" [(ngModel)]="formInfo.endDate">
     </div>
   <div>

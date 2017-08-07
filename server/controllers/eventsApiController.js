@@ -38,6 +38,7 @@ module.exports = {
     startDate: req.body.startDate,
     endDate: req.body.endDate,
     status: req.body.status,
+    penaltyAmount: req.body.penaltyAmount,
   });
   event.save().then(event => {
     const attendees = req.body.attendees.split(",");
@@ -72,6 +73,12 @@ edit: (req,res,next) => {
   const updates = {
      summary: req.body.summary,
      description: req.body.description,
+     team: req.body.team,
+     attendees: req.body.attendees,
+     startDate: req.body.startDate,
+     endDate: req.body.endDate,
+     status: req.body.status,
+     penaltyAmount: req.body.penaltyAmount,
    };
     Event.findByIdAndUpdate(req.params.id, updates).then(event =>{
       res.json(event);

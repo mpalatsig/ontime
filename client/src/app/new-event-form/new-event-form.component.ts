@@ -23,6 +23,7 @@ export class NewEventFormComponent implements OnInit {
   startDate:Date;
   endDate:Date;
   status:any;
+  penaltyAmount:any;
 
 
   constructor(private eventService: EventService, private teamService: TeamService, private session: SessionService, private router: Router) { }
@@ -38,9 +39,6 @@ export class NewEventFormComponent implements OnInit {
   }
 
   newEvent() {
-    console.log(`esto es lo que se graba en availableTeam: ${this.availableTeamsEvent[0]}`)
-    console.log(`esto es lo que se graba en team: ${this.team}`)
-    // this.team = this.availableTeamsEvent
     this.eventService.newEvent(
       this.summary,
       this.description,
@@ -48,7 +46,8 @@ export class NewEventFormComponent implements OnInit {
       this.attendees,
       this.startDate,
       this.endDate,
-      this.status)
+      this.status,
+      this.penaltyAmount)
     .subscribe(
       (event) => console.log(event),
       (err) => this.error = err

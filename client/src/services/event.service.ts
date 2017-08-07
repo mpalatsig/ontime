@@ -20,7 +20,7 @@ export class EventService {
        .map((res) => res.json());
    }
 
-   newEvent(summary, description, team, attendees, startDate, endDate, status) {
+   newEvent(summary, description, team, attendees, startDate, endDate, status, penaltyAmount) {
      return this.http.post(`${this.BASE_URL}/api/events`,{
        summary,
        description,
@@ -29,6 +29,7 @@ export class EventService {
        startDate,
        endDate,
        status,
+       penaltyAmount,
      }, this.options)
        .map((res) => res.json());
    }
