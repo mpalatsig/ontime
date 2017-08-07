@@ -10,6 +10,10 @@ router.get('/events/:id', eventsApiController.get);
 
 router.put('/events/:id', eventsApiController.edit);
 
+router.put('/events/start/:id', eventsApiController.start);
+
+router.put('/events/stop/:id', eventsApiController.stop);
+
 router.delete('/events/:id', eventsApiController.delete);
 
 module.exports = router;

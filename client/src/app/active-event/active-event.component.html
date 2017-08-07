@@ -26,7 +26,7 @@
           <li *ngFor="let attendee of attendees">
             <span> {{ attendee }} </span>
             <span> <button type="button" name="button">Has Arrived</button> </span>
-            <span> <button type="button" name="button">Justified Leave</button> </span>    
+            <span> <button type="button" name="button">Justified Leave</button> </span>
           </li>
         </ul>
       </div>
@@ -35,7 +35,7 @@
       <button (click)="startEvent()" type="submit" name="action">Start Event</button>
     </div>
     <div>
-      <button (click)="deleteEvent()" type="submit" name="action">Finish Event</button>
+      <button (click)="stopEvent()" type="submit" name="action">Finish Event</button>
     </div>
 
   </form>

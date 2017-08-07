@@ -21,6 +21,9 @@ export class ActiveEventComponent implements OnInit {
   attendees:any;
   startDate:Date;
   endDate:Date;
+  status:any;
+  penaltyAmount:any;
+  formInfo:any;
 
 
   constructor(
@@ -41,7 +44,26 @@ export class ActiveEventComponent implements OnInit {
       })
     }
 
-    startEventCounter() {
+    startEvent() {
+      this.status = true
+      this.eventService.startEvent(this.event,this.status)
+      .subscribe( event => {
+          console.log(this.status);
+        },
+        (err) => {this.error = err}
+      );
+
+      // this.eventService.startEventCounter()
+    }
+
+    stopEvent() {
+      this.status = false
+      this.eventService.startEvent(this.event,this.status)
+      .subscribe( event => {
+          console.log(this.status);
+        },
+        (err) => {this.error = err}
+      );
 
     }
 

@@ -94,6 +94,34 @@ delete: (req,res,next) => {
       });
     })
     .catch( e => res.json(e));
-}
+},
+
+start: (req,res,next) => {
+  const updates = {
+     status: req.body.status,
+   };
+   console.log(req.body.status);
+   console.log(updates);
+    Event.findByIdAndUpdate(req.params.id, updates).then(event =>{
+      res.json({
+        message: `Status changed to ${req.body.status}`,
+      });
+    })
+    .catch( e => res.json(e));
+},
+
+stop: (req,res,next) => {
+  const updates = {
+     status: req.body.status,
+   };
+   console.log(req.body.status);
+   console.log(updates);
+    Event.findByIdAndUpdate(req.params.id, updates).then(event =>{
+      res.json({
+        message: `Status changed to ${req.body.status}`,
+      });
+    })
+    .catch( e => res.json(e));
+},
 
 };
