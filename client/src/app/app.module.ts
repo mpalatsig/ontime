@@ -5,6 +5,7 @@ import { SessionService } from '../services/session.service';
 import { EventService } from '../services/event.service';
 import { TeamService } from '../services/team.service';
 import { PenaltyService } from '../services/penalty.service';
+import { EventUserService } from '../services/eventuser.service';
 import { AppComponent } from './app.component';
 import { routes } from './routes';
 import { HttpModule } from '@angular/http';
@@ -45,6 +46,7 @@ import { ActiveEventComponent } from './active-event/active-event.component';
     EventService,
     TeamService,
     PenaltyService,
+    EventUserService,
   ],
   bootstrap: [AppComponent]
 })

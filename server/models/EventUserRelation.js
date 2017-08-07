@@ -14,6 +14,10 @@ const eventUserRelationSchema = new Schema({
     type: Date,
     default: null
   },
+  timeLate: {
+    type: Number,
+    default: null
+  },
   computed: {
     type: Boolean,
     default: false

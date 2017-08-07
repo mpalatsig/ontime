@@ -47,7 +47,7 @@ module.exports = {
         if(attendeFound !== null) {
           const eventUserRelation = new EventUserRelation({
             eventID: event._id,
-            userID: attendeFound._id
+            userID: attendeFound._id,
           });
           eventUserRelation.save();
         }
@@ -74,7 +74,7 @@ edit: (req,res,next) => {
      summary: req.body.summary,
      description: req.body.description,
      team: req.body.team,
-     attendees: req.body.attendees,
+     attendees: req.body.attendees.split(","),
      startDate: req.body.startDate,
      endDate: req.body.endDate,
      status: req.body.status,

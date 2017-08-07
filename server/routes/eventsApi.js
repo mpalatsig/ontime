@@ -16,4 +16,7 @@ router.put('/events/stop/:id', eventsApiController.stop);
 
 router.delete('/events/:id', eventsApiController.delete);
 
+
+
+
 module.exports = router;

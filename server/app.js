@@ -25,7 +25,8 @@ app.use('/api', penaltiesApi);
 const teamsApi = require('./routes/teamsApi');
 app.use('/api', teamsApi);
 
-
+const eventUserRelApi = require('./routes/eventUserRelApi');
+app.use('/api', eventUserRelApi);
 
 
 app.use((req, res, next) => {
