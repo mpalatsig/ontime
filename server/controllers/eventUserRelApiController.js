@@ -33,17 +33,12 @@ module.exports = {
     const eventStartDate = new Date(req.body.startDate);
     const timeNow = new Date();
     const relationID = req.params.id;
-
-
     const rest = Math.abs(eventStartDate.getTime() - timeNow.getTime());
     const restInMin = Math.ceil(rest / (1000 * 60));
     const updatesRel = {
       arrivalDate: timeNow,
       timeLate: restInMin,
     };
-    console.log("logs:");
-    console.log(updatesRel.arrivalDate);
-    console.log(updatesRel.timeLate);
 
     EventUserRelation.findByIdAndUpdate(relationID, updatesRel, {new: true}).then(relation => {
         res.json(relation);

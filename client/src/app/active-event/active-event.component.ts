@@ -54,11 +54,11 @@ export class ActiveEventComponent implements OnInit {
     this.eventService.startEvent(this.event, this.status)
       .subscribe(event => {
         console.log(this.status);
+        this.ngOnInit();
       },
       (err) => { this.error = err }
       );
 
-    // this.eventService.startEventCounter()
   }
 
   stopEvent() {
@@ -66,6 +66,7 @@ export class ActiveEventComponent implements OnInit {
     this.eventService.startEvent(this.event, this.status)
       .subscribe(event => {
         console.log(this.status);
+        this.ngOnInit()
       },
       (err) => { this.error = err }
       );
@@ -76,8 +77,8 @@ export class ActiveEventComponent implements OnInit {
     this.eventUserService.editEventUsersRelations(relationID,this.event.startDate)
       .subscribe(relation => {
         this.relation = relation;
-        var currentRelation = this.attendees.filter(e => e._id == relationID);
-        currentRelation[0]['timeLate'] = this.relation.timeLate;
+        let currentRelation = this.attendees.filter(e => e._id == relationID);
+        currentRelation[0].timeLate = this.relation.timeLate;
       },
       (err) => { this.error = err }
       );
