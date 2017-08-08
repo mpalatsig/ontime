@@ -11,7 +11,7 @@ const eventUserRelationSchema = new Schema({
     ref:'User'
   },
   arrivalDate: {
-    type: Date,
+    type: Date, 
     default: null
   },
   timeLate: {

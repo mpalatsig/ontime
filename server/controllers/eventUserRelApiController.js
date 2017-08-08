@@ -22,7 +22,6 @@ module.exports = {
           );
         });
         Promise.all(relationsPromise).then(populatedUsersResolved => {
-          console.log(populatedUsersResolved);
           res.status(200).json(populatedUsersResolved);
         });
       })
@@ -31,17 +30,14 @@ module.exports = {
 
   /* EDIT eventusers relations*/
   edit: (req, res, next) => {
-    const userId = req.params.id;
+    console.log("Datos del req.body:");
+    console.log(req.body);
+    const relationID = req.params.id;
     const updates = {
-      arrivalDate: "2017-08-07T14:15:26.585Z",
+      arrivalDate: new Date(),
     };
-    EventUserRelation.findByIdAndUpdate(userId, updates).then(relation => {
-        res.json({
-          relation,
-          userId,
-          updates,
-          message: "hollalalal",
-        });
+    EventUserRelation.findByIdAndUpdate(relationID, updates).then(relation => {
+        res.json(relation);
       })
       .catch(e => res.json(e));
   },

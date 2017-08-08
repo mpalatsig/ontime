@@ -14,18 +14,14 @@ export class EventUserService {
    constructor(private http: Http) {}
 
    indexEventUsersRelations(id) {
-     console.log('index EventUsers relations')
-     return this.http.get(`${this.BASE_URL}/api/events/${id}/users`, this.options)
-       .map((res) => res.json());
+     return this.http
+        .get(`${this.BASE_URL}/api/events/${id}/users`, this.options)
+        .map((res) => res.json());
    }
 
-   editEventUsersRelations(user,formInfo) {
-     console.log('edit EventUsers relations')
-     console.log(user)
-     console.log(formInfo)
-     return this.http.put(`${this.BASE_URL}/api/events/users/${user._id}/users`, formInfo, this.options)
-     .map((res) => res.json());
+   editEventUsersRelations(relationID) {
+     return this.http
+      .get(`${this.BASE_URL}/api/events/eventusers/${relationID}`, this.options)
+      .map((res) => res.json());
    }
-
-
 }
