@@ -34,7 +34,7 @@ module.exports = {
     description: req.body.description,
     team: req.body.team,
     userOrganizer: req.user._id,
-    attendees: req.body.attendees,
+    attendees: req.body.attendees.split(","),
     startDate: req.body.startDate,
     endDate: req.body.endDate,
     status: req.body.status,

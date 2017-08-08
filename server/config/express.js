@@ -1,6 +1,6 @@
+require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
-const expressLayouts = require('express-ejs-layouts');
 const layouts = require('express-ejs-layouts');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
@@ -10,8 +10,6 @@ const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
 const mongoose = require('mongoose');
 const config = require('./config');
-
-require('dotenv').config();
 
 
 module.exports = function(app){
@@ -24,10 +22,6 @@ module.exports = function(app){
       console.timeEnd('db');
     })
     .catch( e => console.log(e));
-
-    // view engine setup
-    app.set('views', path.join(__dirname, 'views'));
-    app.set('view engine', 'ejs');
 
     // default value for title local
     app.locals.title = 'Express - Generated with IronGenerator';

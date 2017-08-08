@@ -1,5 +1,7 @@
 const express = require('express');
 // const favicon = require('serve-favicon');
+const path = require('path');
+const layouts = require('express-ejs-layouts');
 const mongoose = require('mongoose');
 const passport = require('passport');
 
@@ -9,6 +11,9 @@ require('./config/passport/local')(passport);
 require('./config/express')(app);
 require('./config/cors')(app);
 
+// view engine setup
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
 
 const authRoutes = require('./routes/auth');
 app.use('/api/auth', authRoutes);
