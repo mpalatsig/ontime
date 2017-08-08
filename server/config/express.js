@@ -46,7 +46,6 @@ module.exports = function(app){
       resave: true,
       saveUninitialized: true,
       store: new MongoStore({mongooseConnection: mongoose.connection}),
-      cookie : { httpOnly: true, maxAge: 2419200000 }
     }));
 
     app.use(passport.initialize());

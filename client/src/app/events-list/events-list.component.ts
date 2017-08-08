@@ -11,20 +11,18 @@ import { Router } from '@angular/router';
 })
 
 export class EventsListComponent implements OnInit {
-  events:Observable<Array<object>>;
+  events:Observable<Array<Object>>;
   user:any;
-  constructor(private eventService: EventService, private session:SessionService) { }
+  constructor(private eventService: EventService, private session:SessionService) {}
 
   ngOnInit() {
     this.eventService.indexEvents()
     .subscribe(
-      (event => {
-        this.events = event
-        console.log(this.events)}
-      ),
-      (err => console.log(err))
-    )
+        (event => {
+          this.events = event
+          console.log(this.events)}
+        ),
+        (err => console.log(err))
+      )
   }
-
-
 }
