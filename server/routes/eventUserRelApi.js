@@ -4,9 +4,6 @@ const eventUserRelApiController = require('../controllers/eventUserRelApiControl
 
 router.get('/events/:id/users', eventUserRelApiController.index);
 
-
-
-
-
+router.put('/events/users/:id/users', eventUserRelApiController.edit);
 
 module.exports = router;

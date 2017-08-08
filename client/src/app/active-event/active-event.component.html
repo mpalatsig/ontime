@@ -8,11 +8,11 @@
   <form enctype="multipart/form-data">
 
     <div>
-      <p for="date-name-input"> Started at {{event.startDate}}</p>
+      <p for="date-name-input"> Started at {{event.startDate | date: 'dd/MM/yyyy' }}</p>
 
     </div>
     <div>
-      <p for="date-name-input"> End Date at {{event.endDate}}</p>
+      <p for="date-name-input"> End Date at {{event.endDate | date: 'dd/MM/yyyy' }}</p>
     </div>
     <div>
       <div>
@@ -24,9 +24,9 @@
       <div> Attendees:
         <ul>
           <li *ngFor="let attendee of attendees">
-            <span> {{ attendee }} </span>
-            <span> <button type="button" name="button">Has Arrived</button> </span>
-            <span> <button type="button" name="button">Justified Leave</button> </span>
+            <span> {{ attendee.userID.email }} </span>
+            <span> <button (click)="setArrival(attendee._id)" type="submit" name="button">Has Arrived</button> </span>
+            <span> <button (click)="justify()" type="submit" name="button">Justified Leave</button> </span>
           </li>
         </ul>
       </div>

@@ -19,32 +19,13 @@ export class EventUserService {
        .map((res) => res.json());
    }
 
-  //  newEvent(summary, description, team, attendees, startDate, endDate, status, penaltyAmount) {
-  //    console.log('new event')
-  //    return this.http.post(`${this.BASE_URL}/api/events`,{
-  //      summary,
-  //      description,
-  //      team,
-  //      attendees,
-  //      startDate,
-  //      endDate,
-  //      status,
-  //      penaltyAmount,
-  //    }, this.options)
-  //      .map((res) => res.json());
-  //  }
-   //
-  //  getEvent(id) {
-  //   console.log('get event')
-  //    return this.http.get(`${this.BASE_URL}/api/events/${id}`, this.options)
-  //      .map((res) => res.json());
-  //  }
-   //
-  //  editEvent(event,formInfo) {
-  //    console.log('edit event')
-  //    return this.http.put(`${this.BASE_URL}/api/events/${event._id}`, formInfo, this.options)
-  //      .map((res) => res.json());
-  //  }
+   editEventUsersRelations(user,formInfo) {
+     console.log('edit EventUsers relations')
+     console.log(user)
+     console.log(formInfo)
+     return this.http.put(`${this.BASE_URL}/api/events/users/${user._id}/users`, formInfo, this.options)
+     .map((res) => res.json());
+   }
 
 
 }

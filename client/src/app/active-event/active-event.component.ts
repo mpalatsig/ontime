@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { PenaltyService } from '../../services/penalty.service';
+import { EventUserService } from '../../services/eventuser.service';
 
 @Component({
   selector: 'app-active-event',
@@ -28,6 +29,7 @@ export class ActiveEventComponent implements OnInit {
 
   constructor(
     private eventService: EventService,
+    private eventUserService: EventUserService,
     private penaltyService: PenaltyService,
     private session: SessionService,
     private route: ActivatedRoute,
@@ -38,8 +40,10 @@ export class ActiveEventComponent implements OnInit {
       .subscribe((params) => {
         this.eventService.getEvent(params.id).subscribe(result => {
           this.event = result;
-          this.attendees = this.event.attendees
-          console.log(this.attendees)
+          this.eventUserService.indexEventUsersRelations(result._id).subscribe(attendees => {
+            this.attendees = attendees
+            console.log(this.attendees)
+          })
         })
       })
     }
@@ -67,8 +71,11 @@ export class ActiveEventComponent implements OnInit {
 
     }
 
-    newPenalty() {
-      // this.penaltyService.newPenalty(this.user._id, )
+    setArrival(relationID) {
+      this.eventUserService.editEventUsersRelations(relationID, this.formInfo) //no se si es correcto el parametro this.attendee. Preguntar!
+      console.log(relationID)
+      console.log(this.formInfo)
+
     }
 
 }
