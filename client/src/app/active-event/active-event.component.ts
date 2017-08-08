@@ -25,8 +25,8 @@ export class ActiveEventComponent implements OnInit {
   status: any;
   penaltyAmount: any;
   relation: any;
-
-
+  buttonArrivalCheck:boolean = false;
+  lateTime:string = "has not arrived"
 
   constructor(
     private eventService: EventService,
@@ -43,6 +43,7 @@ export class ActiveEventComponent implements OnInit {
           this.event = result;
           this.eventUserService.indexEventUsersRelations(result._id).subscribe(attendees => {
             this.attendees = attendees
+            console.log(this.attendees)
           })
         })
       })
@@ -71,11 +72,12 @@ export class ActiveEventComponent implements OnInit {
 
   }
 
-  setArrival(relationID) {
-    this.eventUserService.editEventUsersRelations(relationID)
+  setArrival(relationID,event) {
+    this.eventUserService.editEventUsersRelations(relationID,this.event.startDate)
       .subscribe(relation => {
         this.relation = relation;
-        console.log(this.relation);
+        var currentRelation = this.attendees.filter(e => e._id == relationID);
+        currentRelation[0]['timeLate'] = this.relation.timeLate;
       },
       (err) => { this.error = err }
       );

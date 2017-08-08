@@ -25,7 +25,9 @@
         <ul>
           <li *ngFor="let attendee of attendees">
             <span> {{ attendee.userID.email }} </span>
-            <span> <button (click)="setArrival(attendee._id)" type="submit" name="button">Has Arrived</button> </span>
+            <span *ngIf="(attendee.timeLate == null)"> <button (click)="setArrival(attendee._id, $event)" value="{{ attendee.timeLate }} minutes Late" type="submit" name="button">Has Arrived</button> </span>
+            <span *ngIf="(attendee.timeLate > 0)">{{ attendee.timeLate }} minutes late</span>
+            <!-- <span *ngIf="(attendee.timeLate == 0)">On time!</span> -->
             <span> <button (click)="justify()" type="submit" name="button">Justified Leave</button> </span>
           </li>
         </ul>

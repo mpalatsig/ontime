@@ -19,9 +19,9 @@ export class EventUserService {
         .map((res) => res.json());
    }
 
-   editEventUsersRelations(relationID) {
+   editEventUsersRelations(relationID,startDate) {
      return this.http
-      .get(`${this.BASE_URL}/api/events/eventusers/${relationID}`, this.options)
+      .put(`${this.BASE_URL}/api/events/eventusers/${relationID}`, { startDate }, this.options)
       .map((res) => res.json());
    }
 }

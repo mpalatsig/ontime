@@ -30,13 +30,22 @@ module.exports = {
 
   /* EDIT eventusers relations*/
   edit: (req, res, next) => {
-    console.log("Datos del req.body:");
-    console.log(req.body);
+    const eventStartDate = new Date(req.body.startDate);
+    const timeNow = new Date();
     const relationID = req.params.id;
-    const updates = {
-      arrivalDate: new Date(),
+
+
+    const rest = Math.abs(eventStartDate.getTime() - timeNow.getTime());
+    const restInMin = Math.ceil(rest / (1000 * 60));
+    const updatesRel = {
+      arrivalDate: timeNow,
+      timeLate: restInMin,
     };
-    EventUserRelation.findByIdAndUpdate(relationID, updates).then(relation => {
+    console.log("logs:");
+    console.log(updatesRel.arrivalDate);
+    console.log(updatesRel.timeLate);
+
+    EventUserRelation.findByIdAndUpdate(relationID, updatesRel, {new: true}).then(relation => {
         res.json(relation);
       })
       .catch(e => res.json(e));
