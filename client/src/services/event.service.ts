@@ -44,7 +44,10 @@ export class EventService {
 
    editEvent(event,formInfo) {
      console.log('edit event')
-     return this.http.put(`${this.BASE_URL}/api/events/${event._id}`, formInfo, this.options)
+     console.log('lo que devuelve formInfo es:')
+     console.log(formInfo)
+     console.log(event)
+     return this.http.put(`${this.BASE_URL}/api/events/edit/${event._id}`, formInfo, this.options)
        .map((res) => res.json());
    }
 

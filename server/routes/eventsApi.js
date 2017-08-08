@@ -8,7 +8,7 @@ router.post('/events', eventsApiController.new);
 
 router.get('/events/:id', eventsApiController.get);
 
-router.put('/events/:id', eventsApiController.edit);
+router.put('/events/edit/:id', eventsApiController.edit);
 
 router.put('/events/start/:id', eventsApiController.start);
 

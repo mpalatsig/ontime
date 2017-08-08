@@ -37,6 +37,10 @@ export class ActiveEventComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit() {
+    this.initializeComponent();
+  }
+
+  initializeComponent(){
     this.route.params
       .subscribe((params) => {
         this.eventService.getEvent(params.id).subscribe(result => {
@@ -49,16 +53,27 @@ export class ActiveEventComponent implements OnInit {
       })
   }
 
-  startEvent() {
+  startEvent(relationID) {
     this.status = true
     this.eventService.startEvent(this.event, this.status)
       .subscribe(event => {
         console.log(this.status);
-        this.ngOnInit();
+
+        const newEventDate = {
+          startDate: new Date(),
+        };
+
+        console.log(this.event)
+
+        this.eventService.editEvent(this.event, newEventDate)
+        .subscribe(event =>{
+          console.log("etrraaaaaaaaaa!")
+          console.log(event)
+          this.initializeComponent();
+        })
       },
       (err) => { this.error = err }
       );
-
   }
 
   stopEvent() {

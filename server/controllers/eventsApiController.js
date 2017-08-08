@@ -70,17 +70,24 @@ get: (req,res,next) => {
 
 /* EDIT a single event */
 edit: (req,res,next) => {
+  console.log("ha entrado en el controlador");
+  console.log(req.body.startDate);
+  console.log(req.body);
+  console.log(req.body.attendees);
   const updates = {
      summary: req.body.summary,
      description: req.body.description,
      team: req.body.team,
-     attendees: req.body.attendees.split(","),
+     attendees: req.body.attendees,
      startDate: req.body.startDate,
      endDate: req.body.endDate,
      status: req.body.status,
      penaltyAmount: req.body.penaltyAmount,
    };
+   console.log(updates);
+   console.log(req.params.id);
     Event.findByIdAndUpdate(req.params.id, updates).then(event =>{
+      console.log(event);
       res.json(event);
     })
     .catch( e => res.json(e));

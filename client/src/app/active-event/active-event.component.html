@@ -34,10 +34,10 @@
         </ul>
       </div>
     </div>
-    <div>
+    <div *ngIf="(event.status == false)">
       <button (click)="startEvent()" type="submit" name="action">Start Event</button>
     </div>
-    <div>
+    <div *ngIf="(event.status == true)">
       <button (click)="stopEvent()" type="submit" name="action">Finish Event</button>
     </div>
 

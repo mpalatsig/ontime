@@ -11,23 +11,18 @@ const userSchema = new Schema({
   },
   googleID: {
     type: String,
-    default:'',
   },
   activePenaltyPoints: {
     type: Number,
-    default: 0,
   },
   paidPenaltyPoints: {
     type: Number,
-    default: 0,
   },
   hourlyRate: {
     type: Number,
-    default: 0,
   },
   currency: {
     type: String,
-    default:'',
   },
 }, {
   timestamps: {
