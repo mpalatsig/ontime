@@ -70,7 +70,7 @@ get: (req,res,next) => {
 
 /* EDIT a single event */
 edit: (req,res,next) => {
-  console.log("ha entrado en el controlador");
+  console.log("ha entrado en el controlador y la startDate es: ");
   console.log(req.body.startDate);
   console.log(req.body);
   console.log(req.body.attendees);
@@ -84,6 +84,7 @@ edit: (req,res,next) => {
      status: req.body.status,
      penaltyAmount: req.body.penaltyAmount,
    };
+   console.log("el nuevo updates es:");
    console.log(updates);
    console.log(req.params.id);
     Event.findByIdAndUpdate(req.params.id, updates).then(event =>{

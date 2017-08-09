@@ -59,15 +59,19 @@ export class ActiveEventComponent implements OnInit {
       .subscribe(event => {
         console.log(this.status);
 
-        const newEventDate = {
+        const newEventData = {
+          summary: this.event.summary,
+          description: this.event.description,
+          team: this.event.team,
+          attendees: this.event.attendees,
           startDate: new Date(),
+          endDate: this.event.endDate,
+          status: true,
+          penaltyAmount: this.event.penaltyAmount,
         };
 
-        console.log(this.event)
-
-        this.eventService.editEvent(this.event, newEventDate)
+        this.eventService.editEvent(this.event, newEventData)
         .subscribe(event =>{
-          console.log("etrraaaaaaaaaa!")
           console.log(event)
           this.initializeComponent();
         })
@@ -78,10 +82,24 @@ export class ActiveEventComponent implements OnInit {
 
   stopEvent() {
     this.status = false
-    this.eventService.startEvent(this.event, this.status)
+    this.eventService.stopEvent(this.event, this.status)
       .subscribe(event => {
         console.log(this.status);
-        this.ngOnInit()
+
+        const eventFinishedData = {
+          summary: this.event.summary,
+          description: this.event.description,
+          team: this.event.team,
+          attendees: this.event.attendees,
+          startDate: this.event.startDate,
+          endDate: new Date(),
+          status: false,
+          penaltyAmount: this.event.penaltyAmount,
+        };
+
+
+
+        this.initializeComponent();
       },
       (err) => { this.error = err }
       );
