@@ -1,3 +1,5 @@
+import "materialize-css";
+import { MaterializeModule } from "angular2-materialize";
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -43,6 +45,7 @@ import { TeamUserService } from '../services/teamuser.service';
     BrowserModule,
     FormsModule,
     HttpModule,
+    MaterializeModule,
     RouterModule.forRoot(routes),
   ],
   providers: [

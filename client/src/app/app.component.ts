@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { SessionService } from '../services/session.service';
 import { Router } from '@angular/router';
+import $ from 'jquery';
+import './js/init.js'
 
 @Component({
   selector: 'app-root',
