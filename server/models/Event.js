@@ -35,7 +35,7 @@ const eventSchema = new Schema({
   },
   penaltyAmount: {
     type: Number,
-    default: 1,
+    default: 0,
   },
 
 }, {

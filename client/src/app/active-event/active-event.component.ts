@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { PenaltyService } from '../../services/penalty.service';
 import { EventUserService } from '../../services/eventuser.service';
+import { TeamService } from '../../services/team.service';
 
 @Component({
   selector: 'app-active-event',
@@ -31,6 +32,7 @@ export class ActiveEventComponent implements OnInit {
   constructor(
     private eventService: EventService,
     private eventUserService: EventUserService,
+    private teamService: TeamService,
     private penaltyService: PenaltyService,
     private session: SessionService,
     private route: ActivatedRoute,
@@ -53,7 +55,7 @@ export class ActiveEventComponent implements OnInit {
       })
   }
 
-  startEvent(relationID) {
+  startEvent() {
     this.status = true
     this.eventService.startEvent(this.event, this.status)
       .subscribe(event => {
@@ -85,20 +87,7 @@ export class ActiveEventComponent implements OnInit {
     this.eventService.stopEvent(this.event, this.status)
       .subscribe(event => {
         console.log(this.status);
-
-        const eventFinishedData = {
-          summary: this.event.summary,
-          description: this.event.description,
-          team: this.event.team,
-          attendees: this.event.attendees,
-          startDate: this.event.startDate,
-          endDate: new Date(),
-          status: false,
-          penaltyAmount: this.event.penaltyAmount,
-        };
-
-
-
+        this.saveTimeLatesInEvent()
         this.initializeComponent();
       },
       (err) => { this.error = err }
@@ -111,10 +100,46 @@ export class ActiveEventComponent implements OnInit {
       .subscribe(relation => {
         this.relation = relation;
         let currentRelation = this.attendees.filter(e => e._id == relationID);
-        currentRelation[0].timeLate = this.relation.timeLate;
+        currentRelation[0].timeLate = this.relation.timeLate; //set the value of the first and only object of the array "currentRelation" to timeLate
+
+        this.saveTimeLatesInEvent()
+        // this.initializeComponent();
+
       },
       (err) => { this.error = err }
       );
+  }
+
+  checkTimeLates() {
+    let sumTimeLates = this.attendees.reduce((x, y) => { return x + y.timeLate},0)
+    console.log(`the sumTimeLates is: ${sumTimeLates}`)
+    return sumTimeLates
+  }
+
+  saveTimeLatesInEvent() {
+    this.event.penaltyAmount = this.checkTimeLates()
+
+    const eventFinishedData = {
+      summary: this.event.summary,
+      description: this.event.description,
+      team: this.event.team,
+      attendees: this.event.attendees,
+      startDate: this.event.startDate,
+      endDate: this.event.startDate,
+      status: this.event.status,
+      penaltyAmount: this.event.penaltyAmount,
+    };
+    console.log("Le estoy pasando estos datos para editar")
+    console.log(eventFinishedData)
+
+    this.eventService.editEvent(this.event,eventFinishedData)
+    .subscribe(
+      (event) => {
+        console.log(event);
+        // this.initializeComponent();
+      },
+      (err) => this.error = err
+    );
   }
 
 }

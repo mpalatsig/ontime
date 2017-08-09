@@ -28,8 +28,8 @@ export class TeamService {
        .map((res) => res.json());
    }
 
-   editTeam(event,formInfo) {
-     return this.http.put(`${this.BASE_URL}/api/teams/${event._id}`, formInfo, this.options)
+   editTeam(team,formInfo) {
+     return this.http.put(`${this.BASE_URL}/api/teams/${team._id}`, formInfo, this.options)
        .map((res) => res.json());
    }
 

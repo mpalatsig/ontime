@@ -34,6 +34,7 @@
         </ul>
       </div>
     </div>
+    <div>Total Penalties to Pay: {{ event.penaltyAmount }} EUR </div>
     <div *ngIf="(event.status == false)">
       <button (click)="startEvent()" type="submit" name="action">Start Event</button>
     </div>
