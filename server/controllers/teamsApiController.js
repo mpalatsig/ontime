@@ -65,13 +65,24 @@ get: (req,res,next) => {
 
 /* EDIT a single user */
 edit: (req,res,next) => {
-  const updates = {
-    teamName: req.body.teamName,
-   };
-    Team.findByIdAndUpdate(req.params.id, updates).then(team =>{
-      res.json(team);
-    })
-    .catch( e => res.json(e));
+
+  Team.findById(req.params.id).then(team => {
+    sumNewPenalties = team.penalties + req.body.penalties;
+
+    let updates = {
+      penalties: sumNewPenalties
+     };
+
+     Team.findByIdAndUpdate(req.params.id, updates).then(team =>{
+       res.json(team);
+     });
+
+  }).catch( e => res.json(e));
+
+
+
+
+
 },
 
 /* DELETE a single user */

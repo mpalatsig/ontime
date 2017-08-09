@@ -28,6 +28,7 @@ export class ActiveEventComponent implements OnInit {
   relation: any;
   buttonArrivalCheck:boolean = false;
   lateTime:string = "has not arrived"
+  availableTeamsEvent:any;
 
   constructor(
     private eventService: EventService,
@@ -50,6 +51,11 @@ export class ActiveEventComponent implements OnInit {
           this.eventUserService.indexEventUsersRelations(result._id).subscribe(attendees => {
             this.attendees = attendees
             console.log(this.attendees)
+            this.teamService.indexTeams().subscribe((teamsAvailable => {
+              this.availableTeamsEvent = teamsAvailable
+              console.log(teamsAvailable)
+            }),
+            (err => console.log(err)))
           })
         })
       })
@@ -89,6 +95,15 @@ export class ActiveEventComponent implements OnInit {
         console.log(this.status);
         this.saveTimeLatesInEvent()
         this.initializeComponent();
+
+        const teamUpdates = {
+          penalties: this.event.penaltyAmount
+        }
+
+
+        this.teamService.editTeam(this.event.team,teamUpdates).subscribe(team => {
+          console.log(team)
+        })
       },
       (err) => { this.error = err }
       );
@@ -103,7 +118,6 @@ export class ActiveEventComponent implements OnInit {
         currentRelation[0].timeLate = this.relation.timeLate; //set the value of the first and only object of the array "currentRelation" to timeLate
 
         this.saveTimeLatesInEvent()
-        // this.initializeComponent();
 
       },
       (err) => { this.error = err }
@@ -136,7 +150,6 @@ export class ActiveEventComponent implements OnInit {
     .subscribe(
       (event) => {
         console.log(event);
-        // this.initializeComponent();
       },
       (err) => this.error = err
     );
