@@ -2,8 +2,18 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const teamUserRelationSchema = new Schema({
-  teamID: {type: Schema.Types.ObjectId, ref:'Team'},
-  userID: {type: Schema.Types.ObjectId, ref:'User'},
+  teamID: {
+    type: Schema.Types.ObjectId,
+    ref:'Team'
+  },
+  userID: {
+    type: Schema.Types.ObjectId,
+     ref:'User'
+   },
+  penalties: {
+    type: Number,
+    default: 0
+  },
 }, {
   timestamps: {
     createdAt: 'created_at',

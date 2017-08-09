@@ -22,6 +22,7 @@ import { TeamsListComponent } from './teams-list/teams-list.component';
 import { EditTeamComponent } from './edit-team/edit-team.component';
 import { ActiveEventComponent } from './active-event/active-event.component';
 import { TeamComponent } from './team/team.component';
+import { TeamUserService } from '../services/teamuser.service';
 
 @NgModule({
   declarations: [
@@ -44,11 +45,13 @@ import { TeamComponent } from './team/team.component';
     HttpModule,
     RouterModule.forRoot(routes),
   ],
-  providers: [SessionService,
+  providers: [
+    SessionService,
     EventService,
     TeamService,
     PenaltyService,
     EventUserService,
+    TeamUserService,
   ],
   bootstrap: [AppComponent]
 })

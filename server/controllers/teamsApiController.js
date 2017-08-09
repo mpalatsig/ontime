@@ -73,7 +73,7 @@ edit: (req,res,next) => {
       penalties: sumNewPenalties
      };
 
-     Team.findByIdAndUpdate(req.params.id, updates).then(team =>{
+     Team.findByIdAndUpdate(req.params.id, updates, {new: true}).then(team =>{
        res.json(team);
      });
 

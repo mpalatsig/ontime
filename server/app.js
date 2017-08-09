@@ -33,6 +33,9 @@ app.use('/api', teamsApi);
 const eventUserRelApi = require('./routes/eventUserRelApi');
 app.use('/api', eventUserRelApi);
 
+const teamUserRelApi = require('./routes/teamUserRelApi');
+app.use('/api', teamUserRelApi);
+
 
 app.use((req, res, next) => {
   res.sendfile(__dirname + '/public/index.html');

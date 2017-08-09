@@ -7,6 +7,8 @@ import { ActivatedRoute } from '@angular/router';
 import { PenaltyService } from '../../services/penalty.service';
 import { EventUserService } from '../../services/eventuser.service';
 import { TeamService } from '../../services/team.service';
+import { TeamUserService } from '../../services/teamuser.service';
+
 
 @Component({
   selector: 'app-team',
@@ -15,11 +17,13 @@ import { TeamService } from '../../services/team.service';
 })
 export class TeamComponent implements OnInit {
   team:any;
+  attendees:any;
 
   constructor(
     private eventService: EventService,
     private eventUserService: EventUserService,
     private teamService: TeamService,
+    private teamUserService: TeamUserService,
     private penaltyService: PenaltyService,
     private session: SessionService,
     private route: ActivatedRoute,
@@ -36,17 +40,14 @@ export class TeamComponent implements OnInit {
           console.log("nos devuelve team:")
           console.log(team)
           this.team = team;
-          // this.eventUserService.indexEventUsersRelations(team._id).subscribe(attendees => {
-          //   this.attendees = attendees
-          //   console.log(this.attendees)
-          //   this.teamService.indexTeams().subscribe((teamsAvailable => {
-          //     this.availableTeamsEvent = teamsAvailable
-          //     console.log(teamsAvailable)
-          //   }),
-          //   (err => console.log(err)))
-          // })
+          this.teamUserService.indexTeamUsersRelations(team._id).subscribe((attendees => {
+            this.attendees = attendees
+            console.log(this.attendees)
+          }),
+          (err => console.log(err)))
         })
       })
+    
   }
 
 }
