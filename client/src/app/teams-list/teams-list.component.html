@@ -12,6 +12,7 @@
 <div *ngIf="(teams)">
   <div  *ngFor="let team of teams" class="blocky">
     <h3> {{ team.teamID.teamName }} </h3>
-    <a [routerLink]="['/team', team.teamID._id]"> View Details </a>
+    <a [routerLink]="['/team/', team.teamID._id, 'details']"> View Details </a><br>
+    <a [routerLink]="['/team/', team.teamID._id, 'edit']"> Edit </a>
   </div>
 </div>

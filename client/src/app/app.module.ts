@@ -21,6 +21,7 @@ import { NewTeamFormComponent } from './new-team-form/new-team-form.component';
 import { TeamsListComponent } from './teams-list/teams-list.component';
 import { EditTeamComponent } from './edit-team/edit-team.component';
 import { ActiveEventComponent } from './active-event/active-event.component';
+import { TeamComponent } from './team/team.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { ActiveEventComponent } from './active-event/active-event.component';
     NewTeamFormComponent,
     TeamsListComponent,
     EditTeamComponent,
-    ActiveEventComponent
+    ActiveEventComponent,
+    TeamComponent
   ],
   imports: [
     BrowserModule,
