@@ -1,21 +1,19 @@
-<div class="container" *ngIf="user">
-
-  <!-- <h3> My Events List </h3>
-
-  <div>
-    <button type="button" name="button" [routerLink]="['/newevent']">Create New Event</button>
-  </div>
-
-  <div>
-    <button type="button" name="button" [routerLink]="['/newteam']">Create New Team</button>
-  </div> -->
+<div class="container row" *ngIf="user">
 
 
-  <div *ngIf="events">
-    <div  *ngFor="let event of events | async">
+
+  <div *ngIf="events" class="col s12 m6 offset-m3">
+
+  <h4> My Events List </h4><span>
+    <button class="waves-effect waves-light btn light-blue " type="button" name="button" [routerLink]="['/newevent']">Create New Event</button>
+  </span>
+  <span><button class="waves-effect waves-light btn light-blue" type="button" name="button" [routerLink]="['/newteam']">Create New Team</button>
+  </span>
+
+    <div *ngFor="let event of events | async">
 
       <div class="row">
-        <div class="col s6 m6 ">
+        <div class="col s12">
           <div class="card light-blue lighten-5">
             <div class="card-content  light-blue-text text-darken-3">
               <span class="card-title light-blue-text text-darken-4">Event: {{ event.eventID.summary }}</span>
