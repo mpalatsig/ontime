@@ -1,7 +1,7 @@
 import "materialize-css";
 import { MaterializeModule } from "angular2-materialize";
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, enableProdMode } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { SessionService } from './services/session.service';
 import { EventService } from './services/event.service';
@@ -26,7 +26,6 @@ import { ActiveEventComponent } from './active-event/active-event.component';
 import { TeamComponent } from './team/team.component';
 import { TeamUserService } from './services/teamuser.service';
 
-enableProdMode()
 
 @NgModule({
   declarations: [
