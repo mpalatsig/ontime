@@ -1,0 +1,16 @@
+.login {
+  display: flex;
+  justify-content: center;
+  /*vertical-align: middle;
+  margin-top: 10%;*/
+  height: 100vh;
+}
+
+.btn {
+  
+}
+
+.backlink {
+  margin-top: 300px;
+
+}

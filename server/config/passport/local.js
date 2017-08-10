@@ -5,20 +5,14 @@ const bcrypt = require('bcrypt');
 module.exports = function (passport) {
   passport.use(new LocalStrategy((username, password, next) => {
     User.findOne({ username }, (err, foundUser) => {
-      if (err) {
-        next(err);
-        return;
-      }
+      if (err)
+        return next(err);
 
-      if (!foundUser) {
-        next(null, false, { message: 'Incorrect username' });
-        return;
-      }
+      if (!foundUser)
+        return next(null, false, { message: 'Incorrect username' });
 
-      if (!bcrypt.compareSync(password, foundUser.password)) {
-        next(null, false, { message: 'Incorrect password' });
-        return;
-      }
+      if (!bcrypt.compareSync(password, foundUser.password))
+        return next(null, false, { message: 'Incorrect password' });
 
       next(null, foundUser);
     });
@@ -30,10 +24,8 @@ module.exports = function (passport) {
 
   passport.deserializeUser((userIdFromSession, cb) => {
     User.findById(userIdFromSession, (err, userDocument) => {
-      if (err) {
-        cb(err);
-        return;
-      }
+      if (err)
+        return cb(err);
 
       cb(null, userDocument);
     });

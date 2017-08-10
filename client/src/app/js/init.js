@@ -1,7 +1,8 @@
 (function($){
   $(function(){
 
-  
+
+  $(".dropdown-button").dropdown();
   $('.button-collapse').sideNav();
 
   }); // end of document ready

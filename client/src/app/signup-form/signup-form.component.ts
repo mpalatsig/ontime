@@ -14,17 +14,18 @@ export class SignupFormComponent implements OnInit {
   email:string;
   constructor(private session: SessionService, private router: Router) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   signup() {
     this.session.signup(this.username, this.password, this.email)
       .subscribe(
-        (user) => console.log(user),
+        (user) => {
+          console.log(user)
+          this.router.navigate(['/home']);
+          console.log(`${this.username} is logged`)
+        },
         (err) => this.error = err
       );
-    this.router.navigate(['/home']);
-    console.log(`${this.username} is logged`)
   }
 
 }

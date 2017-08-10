@@ -1,3 +1,6 @@
+<div *ngIf="session.user && session.startLoginCompleted">
+
+
 <div>
   <a [routerLink]="['/home']"> Go Back to Events </a>
 </div>
@@ -15,4 +18,6 @@
     <a [routerLink]="['/team/', team.teamID._id, 'details']"> View Details </a><br>
     <a [routerLink]="['/team/', team.teamID._id, 'edit']"> Edit </a>
   </div>
+</div>
+
 </div>

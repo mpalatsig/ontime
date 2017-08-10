@@ -59,8 +59,7 @@ export class SessionService {
   isLoggedIn():Observable<User>{
     return this.http.get(`${this.BASE_URL}/loggedin`, this.options)
       .map(res => {
-        this.user = res.json();
-        return this.user;
+        return res.json()
       })
       .catch(this.handleError);
   }

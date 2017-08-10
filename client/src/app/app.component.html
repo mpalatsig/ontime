@@ -1,12 +1,5 @@
-<div class="headerFake">
+<!-- <div class="headerFake">
 este es el componente principal
-
-<!-- <app-login-form *ngIf="!session.user && session.startLoginCompleted"></app-login-form>
-<div *ngIf="session.user && session.startLoginCompleted">
-  <pre>{{ session.user | json }}</pre>
-  <button (click)="logout()">Logout</button>
-</div> -->
-
 
 <div *ngIf="session.user && session.startLoginCompleted">
   <h3> Hi, {{ session.user.username }}, you are logged in</h3>
@@ -22,33 +15,61 @@ este es el componente principal
   <button [routerLink]="['/teams']">My Teams</button>
 </div>
 
+</div> -->
+
+<div *ngIf="session.user && session.startLoginCompleted">
+
+  <!-- Dropdown Structure -->
+  <ul id="dropdown1" class="dropdown-content">
+    <li><a href="#!">one</a></li>
+    <li><a href="#!">two</a></li>
+    <li class="divider"></li>
+    <li><a href="#!">three</a></li>
+  </ul>
+  <nav class="light-blue">
+  <div class="nav-wrapper">
+    <a href="#!" class="brand-logo">Ontime</a>
+    <a href="" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+    <ul class="right hide-on-med-and-down">
+      <li><a [routerLink]="['/teams']">My Teams</a></li>
+      <li><a (click)="logout()">Logout</a></li>
+      <li><a class="dropdown-button" data-activates="dropdown1">{{ session.user.username }}<i class="material-icons right">arrow_drop_down</i></a></li>
+    </ul>
+    <ul class="side-nav" id="mobile-demo">
+      <li><a [routerLink]="['/teams']">My Teams</a></li>
+      <li><a (click)="logout()">Logout</a></li>
+      <!-- Dropdown Trigger -->
+      <li><a class="dropdown-button" data-activates="dropdown1">{{ session.user.username }}<i class="material-icons right">arrow_drop_down</i></a></li>
+    </ul>
+  </div>
+</nav>
+
 </div>
 
-<div class="row">
-   <div class="input-field col s6">
-     <input value="Alvin" id="first_name2" type="text" class="validate">
-     <label class="active" for="first_name2">First Name</label>
-   </div>
- </div>
 
 
-<nav>
-    <div class="nav-wrapper">
-      <a href="#!" class="brand-logo">Logo</a>
-      <a href="" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-      <ul class="right hide-on-med-and-down">
-        <li><a href="sass.html">Sass</a></li>
-        <li><a href="badges.html">Components</a></li>
-        <li><a href="collapsible.html">Javascript</a></li>
-        <li><a href="mobile.html">Mobile</a></li>
-      </ul>
-      <ul class="side-nav" id="mobile-demo">
-        <li><a href="sass.html">Sass</a></li>
-        <li><a href="badges.html">Components</a></li>
-        <li><a href="collapsible.html">Javascript</a></li>
-        <li><a href="mobile.html">Mobile</a></li>
-      </ul>
-    </div>
-  </nav>
+<nav  class="light-blue" *ngIf="!session.user">
+  <div class="nav-wrapper">
+    <a href="#!" class="brand-logo">Ontime</a>
+    <a href="" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+    <ul class="right hide-on-med-and-down">
+      <li><a [routerLink]="['/signup']">Signup</a></li>
+      <li><a [routerLink]="['/login']">Login</a></li>
+    </ul>
+    <ul class="side-nav" id="mobile-demo">
+      <li><a [routerLink]="['/signup']">Signup</a></li>
+      <li><a [routerLink]="['/login']">Login</a></li>
+    </ul>
+  </div>
+</nav>
 
 <router-outlet></router-outlet>
+
+
+
+
+<!-- <app-login-form *ngIf="!session.user && session.startLoginCompleted"></app-login-form>
+<div *ngIf="session.user && session.startLoginCompleted">
+  <pre>{{ session.user | json }}</pre>
+  <button (click)="logout()">Logout</button>
+</div> -->

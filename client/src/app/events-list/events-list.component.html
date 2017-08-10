@@ -1,17 +1,36 @@
-<h3> My Events List </h3>
+<div class="events-list" *ngIf="user">
 
-<div>
-  <button type="button" name="button" [routerLink]="['/newevent']">Create New Event</button>
-</div>
+  <!-- <h3> My Events List </h3>
 
-<div>
-  <button type="button" name="button" [routerLink]="['/newteam']">Create New Team</button>
-</div>
-
-<div *ngIf="(events)">
-  <div  *ngFor="let event of events" class="blocky">
-    <h3> {{ event.eventID.summary }} </h3>
-    <p> {{ event.eventID.description }} </p>
-    <a [routerLink]="['/event', event.eventID._id]"> View Details </a>
+  <div>
+    <button type="button" name="button" [routerLink]="['/newevent']">Create New Event</button>
   </div>
+
+  <div>
+    <button type="button" name="button" [routerLink]="['/newteam']">Create New Team</button>
+  </div> -->
+
+
+  <div *ngIf="events">
+    <div  *ngFor="let event of events | async" class="blocky">
+
+      <div class="row">
+        <div class="center-align col s12 m6">
+          <div class="card light-blue lighten-5">
+            <div class="card-content  light-blue-text text-darken-3">
+              <span class="card-title light-blue-text text-darken-4">Event: {{ event.eventID.summary }}</span>
+              <p>{{ event.eventID.description }}</p>
+            </div>
+            <div class="card-action">
+              <a class="right-align light-blue-text" [routerLink]="['/event', event.eventID._id]">Edit</a>
+              <a class="right-align light-blue-text" [routerLink]="['/event/', event.eventID._id, 'active']">Start Event</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
 </div>

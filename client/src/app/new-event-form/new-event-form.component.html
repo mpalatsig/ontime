@@ -1,3 +1,8 @@
+<div *ngIf="session.user && session.startLoginCompleted">
+
+
+
+
 <div>
   <a [routerLink]="['/home']"> Go Back to Events </a>
 </div>
@@ -41,3 +46,6 @@
     <button (click)="newEvent()" type="submit" name="action">Submit</button>
   </div>
 </form>
+
+
+</div>
