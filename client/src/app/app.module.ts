@@ -3,11 +3,11 @@ import { MaterializeModule } from "angular2-materialize";
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { SessionService } from '../services/session.service';
-import { EventService } from '../services/event.service';
-import { TeamService } from '../services/team.service';
-import { PenaltyService } from '../services/penalty.service';
-import { EventUserService } from '../services/eventuser.service';
+import { SessionService } from './services/session.service';
+import { EventService } from './services/event.service';
+import { TeamService } from './services/team.service';
+import { PenaltyService } from './services/penalty.service';
+import { EventUserService } from './services/eventuser.service';
 import { AppComponent } from './app.component';
 import { routes } from './routes';
 import { HttpModule } from '@angular/http';
@@ -24,7 +24,7 @@ import { TeamsListComponent } from './teams-list/teams-list.component';
 import { EditTeamComponent } from './edit-team/edit-team.component';
 import { ActiveEventComponent } from './active-event/active-event.component';
 import { TeamComponent } from './team/team.component';
-import { TeamUserService } from '../services/teamuser.service';
+import { TeamUserService } from './services/teamuser.service';
 
 @NgModule({
   declarations: [

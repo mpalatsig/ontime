@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { EventService } from '../../services/event.service';
-import { SessionService } from '../../services/session.service';
+import { EventService } from '../services/event.service';
+import { SessionService } from '../services/session.service';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
-import { PenaltyService } from '../../services/penalty.service';
-import { EventUserService } from '../../services/eventuser.service';
-import { TeamService } from '../../services/team.service';
-import { TeamUserService } from '../../services/teamuser.service';
+import { PenaltyService } from '../services/penalty.service';
+import { EventUserService } from '../services/eventuser.service';
+import { TeamService } from '../services/team.service';
+import { TeamUserService } from '../services/teamuser.service';
 
 
 @Component({
@@ -47,7 +47,7 @@ export class TeamComponent implements OnInit {
           (err => console.log(err)))
         })
       })
-    
+
   }
 
 }

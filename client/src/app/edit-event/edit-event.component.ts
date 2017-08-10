@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { EventService } from '../../services/event.service';
-import { SessionService } from '../../services/session.service';
+import { EventService } from '../services/event.service';
+import { SessionService } from '../services/session.service';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
-import { PenaltyService } from '../../services/penalty.service';
+import { PenaltyService } from '../services/penalty.service';
 
 @Component({
   selector: 'app-edit-event',

@@ -3,7 +3,7 @@ import { Http, Response } from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import { Observable } from 'rxjs/Rx';
-import { environment } from '../environments/environment';
+import { environment } from '../../environments/environment';
 
 export interface User {
   _id:string,

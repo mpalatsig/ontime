@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { EventService } from '../../services/event.service';
+import { EventService } from '../services/event.service';
 import { Observable } from 'rxjs';
-import { SessionService } from '../../services/session.service';
+import { SessionService } from '../services/session.service';
 import { Router } from '@angular/router';
 
 @Component({

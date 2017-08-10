@@ -4,12 +4,25 @@ const path = require('path');
 const layouts = require('express-ejs-layouts');
 const mongoose = require('mongoose');
 const passport = require('passport');
+const logger = require('morgan');
+const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
 
 const app = express();
 
-require('./config/passport/local')(passport);
-require('./config/express')(app);
 require('./config/cors')(app);
+require('./config/express')(app);
+
+
+
+app.use(logger('dev'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use(layouts);
+app.use(express.static(path.join(__dirname, 'public')));
+
+require('./config/passport/local')(passport);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -36,9 +49,8 @@ app.use('/api', eventUserRelApi);
 const teamUserRelApi = require('./routes/teamUserRelApi');
 app.use('/api', teamUserRelApi);
 
-
-app.use((req, res, next) => {
-  res.sendfile(__dirname + '/public/index.html');
+app.use('/*',(req, res, next) => {
+  res.sendFile(__dirname + '/public/index.html');
 });
 
 require('./config/error-handler')(app);

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { TeamService } from '../../services/team.service';
-import { SessionService } from '../../services/session.service';
+import { TeamService } from '../services/team.service';
+import { SessionService } from '../services/session.service';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
