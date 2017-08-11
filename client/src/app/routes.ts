@@ -10,10 +10,12 @@ import { TeamsListComponent } from './teams-list/teams-list.component';
 import { EditTeamComponent } from './edit-team/edit-team.component';
 import { ActiveEventComponent } from './active-event/active-event.component';
 import { TeamComponent } from './team/team.component';
+import { LandingComponent } from './landing/landing.component';
 
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'landing',  component: LandingComponent },
   { path: 'signup',  component: SignupFormComponent },
   { path: 'login', component: LoginFormComponent },
   { path: 'home', component: EventsListComponent },

@@ -3,6 +3,11 @@
 (function($) {
   $(function() {
 
+
+
+
+
+    $('.carousel.carousel-slider').carousel({fullWidth: true,duration:200,indicators:true});
     $('select').material_select();
     $('.button-collapse').sideNav();
     $(".dropdown-button").dropdown();

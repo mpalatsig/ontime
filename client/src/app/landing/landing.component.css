@@ -49,13 +49,15 @@ margin-top: 0px;
 }
 
 #title-home {
-  margin-top: 20%;
+  margin-top: 15%;
   font-weight: bold;
+  color: white;
 }
 
 #text-home {
+  color: white;
   margin-top: 0px;
-  font-weight: normal;
+  font-weight: lighter;
   font-size: 40px;
   width: 70%;
   margin-left: 15%;

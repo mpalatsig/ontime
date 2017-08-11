@@ -25,6 +25,7 @@ import { EditTeamComponent } from './edit-team/edit-team.component';
 import { ActiveEventComponent } from './active-event/active-event.component';
 import { TeamComponent } from './team/team.component';
 import { TeamUserService } from './services/teamuser.service';
+import { LandingComponent } from './landing/landing.component';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { TeamUserService } from './services/teamuser.service';
     TeamsListComponent,
     EditTeamComponent,
     ActiveEventComponent,
-    TeamComponent
+    TeamComponent,
+    LandingComponent
   ],
   imports: [
     BrowserModule,

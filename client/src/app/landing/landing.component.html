@@ -1,0 +1,23 @@
+<div class="row" *ngIf="!user">
+
+<div class="carousel carousel-slider center" data-indicators="true" id="mask">
+  <div class="center">
+      <a class="btn waves-effect blue white-text darken-text-2" id="signup" [routerLink]="['/signup']">Signup Now</a>
+    </div>
+    <div class="carousel-item light-blue-text" id="carousel-item1">
+      <h1 id="title-home">Keep on Time your Meetings</h1>
+      <p id="text-home" class="white-text">Track dalays with your friends and coleagues and save time and money.</p>
+    </div>
+</div>
+
+
+        <footer class="page-footer light-blue darken-4" *ngIf="!user">
+
+          <div class="footer-copyright center-align">
+            <p class="container center-align text-footer">
+            © 2017 Happy coded by Marc Palatsí at Ironhack
+          </p>
+          </div>
+        </footer>
+
+</div>

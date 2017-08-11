@@ -1,5 +1,4 @@
 <div class="navbar-fixed" *ngIf="session.user && session.startLoginCompleted">
-
   <!-- Dropdown Structure -->
   <ul id="dropdown1" class="dropdown-content">
     <li><a href="#!">one</a></li>
@@ -9,7 +8,7 @@
   </ul>
   <nav class="light-blue">
     <div class="nav-wrapper">
-      <a [routerLink]="['/home']" class="brand-logo">Ontime</a>
+      <a [routerLink]="['home']" class="brand-logo">Ontime</a>
       <a href="" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
         <li><a [routerLink]="['/teams']">My Teams</a></li>
@@ -24,15 +23,13 @@
       </ul>
     </div>
   </nav>
-
 </div>
 
 
 <div class="navbar-fixed">
-
   <nav class="light-blue" *ngIf="!session.user">
     <div class="nav-wrapper">
-      <a [routerLink]="['/home']" class="brand-logo">Ontime</a>
+      <a href="/landing" class="brand-logo">Ontime</a>
       <a href="" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
         <li><a [routerLink]="['/signup']">Signup</a></li>
@@ -45,5 +42,9 @@
     </div>
   </nav>
 </div>
+
+
+
+
 
 <router-outlet></router-outlet>
