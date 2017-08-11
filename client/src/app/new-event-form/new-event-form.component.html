@@ -1,51 +1,47 @@
-<div *ngIf="session.user">
+<div class="newevent" *ngIf="session.user">
 
-
-
-
-<div>
-  <a [routerLink]="['/home']"> Go Back to Events </a>
-</div>
-<div>
-  <h1>New Event</h1>
-</div>
-<form enctype="multipart/form-data">
-  <div>
-    <div>
-      <label for="title">Title for the Event</label>
-      <input id="title" type="text" name="title" [(ngModel)]="summary" required>
+    <div class="row">
+      <form class="col s12 m6 offset-m3" enctype="multipart/form-data">
+        <a [routerLink]="['/home']"> < Go Back </a>
+        <h2>Create New Event</h2>
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="title" type="text" class="validate" [(ngModel)]="summary" name="title">
+            <label for="title">Title for the event</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="start-date" type="datetime-local" class="validate" [(ngModel)]="startDate" name="startDate">
+            <label class="active" for="date-name-input">Start Date</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="end-date" type="datetime-local" class="validate" [(ngModel)]="endDate" name="endDate">
+            <label class="active" for="date-name-input">End Date</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <textarea id="description" type="text" class="materialize-textarea validate" [(ngModel)]="description" name="description"></textarea>
+            <label for="description">Descripcion</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="attendees" type="text" class="validate" [(ngModel)]="attendees" name="attendees">
+            <label for="attendees">Attendees</label>
+          </div>
+        </div>
+        <div class="row">
+            <label class="browser-default" for="teamsav">Team for the Event</label>
+            <select class="browser-default" id=teams [(ngModel)]="team" name="team">
+              <option value="" disabled selected>Choose your option</option>
+              <option  *ngFor="let availableTeamEvent of availableTeamsEvent" [ngValue]="availableTeamEvent.teamID._id" #teamValue >{{ availableTeamEvent.teamID.teamName }}</option>
+            </select>
+        </div>
+        <button class="waves-effect waves-light btn light-blue right" (click)="newEvent()" type="submit" name="action">Create</button>
+      </form>
     </div>
-  </div>
-  <div>
-      <label for="date-name-input"> Start Date</label>
-      <input type="datetime-local" name="startDate" class="form-control" placeholder="From" [(ngModel)]="startDate">
-    </div>
-    <div>
-      <label for="date-name-input"> End Date</label>
-      <input type="datetime-local" name="endDate" class="form-control" placeholder="Until" [(ngModel)]="endDate">
-    </div>
-  <div>
-    <div>
-      <label for="description">Descripcion</label>
-      <textarea id="description" type="text" name="description" [(ngModel)]="description"></textarea>
-    </div>
-  </div>
-  <div>
-    <div>
-      <label for="attendees">Attendees</label>
-      <input id="attendees" type="text" name="attendees" [(ngModel)]="attendees">
-    </div>
-  </div>
-  <div>
-    <label for="teamsav">Team of the event</label>
-    <select class="form-control" id=teams [(ngModel)]="team" name="team">
-      <option *ngFor="let availableTeamEvent of availableTeamsEvent" [ngValue]="availableTeamEvent.teamID._id" #teamValue >{{ availableTeamEvent.teamID.teamName }}</option>
-    </select>
-  </div>
-  <div>
-    <button (click)="newEvent()" type="submit" name="action">Submit</button>
-  </div>
-</form>
-
-
 </div>

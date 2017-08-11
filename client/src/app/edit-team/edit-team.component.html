@@ -1,35 +1,25 @@
-<div *ngIf="session.user && session.startLoginCompleted">
 
-
-
-<div *ngIf ="team">
-<div>
-  <a [routerLink]="['/home']"> Go Back to Home </a>
-</div>
-<div>
-  <h1>Edit {{team.teamName}} team</h1>
-</div>
-<form enctype="multipart/form-data">
-  <div>
-    <div>
-      <label for="teamName">Name of the team</label>
-      <input id="teamName" type="text" name="teamName"  [(ngModel)]="formInfo.teamName">
+<div class="editevent" *ngIf="session.user && session.startLoginCompleted">
+  <div  *ngIf ="team" >
+    <div class="row">
+      <form class="col s12 m6 offset-m3" enctype="multipart/form-data">
+        <a [routerLink]="['/teams']"> < Go Back </a>
+        <h2>Edit {{team.teamName}} team</h2>
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="teamName" type="text" class="validate" [(ngModel)]="formInfo.teamName" name="teamName">
+            <label class="active" for="teamName">Name of the Team</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="members" type="text" class="validate" [(ngModel)]="formInfo.members" name="members">
+            <label class="active" for="attendees">Members</label>
+          </div>
+        </div>
+        <button class="waves-effect waves-light btn light-blue right" (click)="editTeam()" type="submit" name="action">Save</button>
+        <button class="waves-effect waves-light btn-flat right" (click)="deleteTeam()" type="submit" name="action">Delete</button>
+      </form>
     </div>
   </div>
-  <div>
-    <div>
-      <label for="members">Members</label>
-      <input id="members" type="text" name="members"  [(ngModel)]="formInfo.members">
-    </div>
-  </div>
-  <div>
-    <button (click)="editTeam()" type="submit" name="action">Edit</button>
-  </div>
-  <div>
-    <button (click)="deleteTeam()" type="submit" name="action">Delete</button>
-  </div>
-
-</form>
-</div>
-
 </div>

@@ -1,5 +1,4 @@
-
-<div *ngIf="session.user && session.startLoginCompleted">
+<div class="navbar-fixed" *ngIf="session.user && session.startLoginCompleted">
 
   <!-- Dropdown Structure -->
   <ul id="dropdown1" class="dropdown-content">
@@ -9,40 +8,42 @@
     <li><a href="#!">three</a></li>
   </ul>
   <nav class="light-blue">
-  <div class="nav-wrapper">
-    <a href="#!" class="brand-logo">Ontime</a>
-    <a href="" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-    <ul class="right hide-on-med-and-down">
-      <li><a [routerLink]="['/teams']">My Teams</a></li>
-      <li><a (click)="logout()">Logout</a></li>
-      <li><a class="dropdown-button" data-activates="dropdown1">{{ session.user.username }}<i class="material-icons right">arrow_drop_down</i></a></li>
-    </ul>
-    <ul class="side-nav" id="mobile-demo">
-      <li><a [routerLink]="['/teams']">My Teams</a></li>
-      <li><a (click)="logout()">Logout</a></li>
-      <!-- Dropdown Trigger -->
-      <li><a class="dropdown-button" data-activates="dropdown1">{{ session.user.username }}<i class="material-icons right">arrow_drop_down</i></a></li>
-    </ul>
-  </div>
-</nav>
+    <div class="nav-wrapper">
+      <a [routerLink]="['/home']" class="brand-logo">Ontime</a>
+      <a href="" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down">
+        <li><a [routerLink]="['/teams']">My Teams</a></li>
+        <li><a (click)="logout()">Logout</a></li>
+        <li><a class="dropdown-button" data-activates="dropdown1">{{ session.user.username }}<i class="material-icons right">arrow_drop_down</i></a></li>
+      </ul>
+      <ul class="side-nav" id="mobile-demo">
+        <li><a [routerLink]="['/teams']">My Teams</a></li>
+        <li><a (click)="logout()">Logout</a></li>
+        <!-- Dropdown Trigger -->
+        <li><a class="dropdown-button btn" data-activates="dropdown1">{{ session.user.username }}<i class="material-icons right">arrow_drop_down</i></a></li>
+      </ul>
+    </div>
+  </nav>
 
 </div>
 
 
+<div class="navbar-fixed">
 
-<nav  class="light-blue" *ngIf="!session.user">
-  <div class="nav-wrapper">
-    <a href="#!" class="brand-logo">Ontime</a>
-    <a href="" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-    <ul class="right hide-on-med-and-down">
-      <li><a [routerLink]="['/signup']">Signup</a></li>
-      <li><a [routerLink]="['/login']">Login</a></li>
-    </ul>
-    <ul class="side-nav" id="mobile-demo">
-      <li><a [routerLink]="['/signup']">Signup</a></li>
-      <li><a [routerLink]="['/login']">Login</a></li>
-    </ul>
-  </div>
-</nav>
+  <nav class="light-blue" *ngIf="!session.user">
+    <div class="nav-wrapper">
+      <a [routerLink]="['/home']" class="brand-logo">Ontime</a>
+      <a href="" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down">
+        <li><a [routerLink]="['/signup']">Signup</a></li>
+        <li><a [routerLink]="['/login']">Login</a></li>
+      </ul>
+      <ul class="side-nav" id="mobile-demo">
+        <li><a [routerLink]="['/signup']">Signup</a></li>
+        <li><a [routerLink]="['/login']">Login</a></li>
+      </ul>
+    </div>
+  </nav>
+</div>
 
 <router-outlet></router-outlet>

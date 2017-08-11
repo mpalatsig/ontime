@@ -1,61 +1,43 @@
-<div *ngIf="session.user && session.startLoginCompleted">
-
-
-
-
-<div *ngIf ="event">
-<div>
-  <a [routerLink]="['/home']"> Go Back to Events </a>
-</div>
-<div>
-  <h1>Edit {{event.summary}} Event</h1>
-</div>
-<form enctype="multipart/form-data">
-  <div>
-    <div>
-      <label for="title">Title for the event</label>
-      <input id="title" type="text" name="title"  [(ngModel)]="formInfo.summary">
+<div class="editevent" *ngIf="session.user && session.startLoginCompleted">
+  <div  *ngIf ="event" >
+    <div class="row">
+      <form class="col s12 m6 offset-m3" enctype="multipart/form-data">
+        <a [routerLink]="['/home']"> < Go Back </a>
+        <h2>Edit this Event</h2>
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="title" type="text" class="validate" [(ngModel)]="formInfo.summary" name="title">
+            <label class="active" for="title">Title for the event</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="start-date" type="datetime-local" class="validate" [(ngModel)]="formInfo.startDate" name="startDate">
+            <label class="active" for="date-name-input">Current Starting Date: {{event.startDate | date: 'dd/MM/yyyy' }}, New Start Date:</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="end-date" type="datetime-local" class="validate" [(ngModel)]="formInfo.endDate" name="endDate">
+            <label class="active" for="date-name-input"> Current Finish Date {{event.endDate  | date: 'dd/MM/yyyy' }}, New End Date</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <textarea id="description" type="text" class="materialize-textarea validate" [(ngModel)]="formInfo.description" name="description"></textarea>
+            <label class="active" for="description">Descripcion</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="attendees" type="text" class="validate" [(ngModel)]="formInfo.attendees" name="attendees">
+            <label class="active" for="attendees">attendees</label>
+          </div>
+        </div>
+        <button class="waves-effect waves-light btn light-blue right" (click)="editEvent()" type="submit" name="action">Save</button>
+        <button class="waves-effect waves-light btn-flat right" [routerLink]="['/event/', event._id, 'active']">Start Event</button>
+        <button class="waves-effect waves-light btn-flat right" (click)="deleteEvent()" type="submit" name="action">Delete</button>
+      </form>
     </div>
   </div>
-  <div>
-      <label for="date-name-input"> Current Starting Date: {{event.startDate | date: 'dd/MM/yyyy' }}, New Start Date: </label>
-      <input type="datetime-local" name="startDate" class="form-control" placeholder="From" [(ngModel)]="formInfo.startDate">
-    </div>
-    <div>
-      <label for="date-name-input"> Current Finish Date {{event.endDate  | date: 'dd/MM/yyyy' }}, New End Date</label>
-      <input type="datetime-local" name="endDate" class="form-control" placeholder="Until" [(ngModel)]="formInfo.endDate">
-    </div>
-  <div>
-    <div>
-      <label for="description">Descripcion</label>
-      <textarea id="description" type="text" name="description" [(ngModel)]="formInfo.description"></textarea>
-    </div>
-  </div>
-  <div>
-    <div>
-      <label for="attendees">Attendees</label>
-      <input id="attendees" type="text" name="attendees" [(ngModel)]="formInfo.attendees">
-    </div>
-  </div>
-  <!-- <div>
-    <label for="teamsav">Team of the event</label>
-    <select class="form-control" id=teams [(ngModel)]="formInfo.team" name="team">
-      <option *ngFor="let availableTeamEvent of availableTeamsEvent" [ngValue]="availableTeamEvent.teamID._id" #teamValue >{{ availableTeamEvent.teamID.teamName }}</option>
-    </select>
-  </div> -->
-  <div>
-    <button (click)="editEvent()" type="submit" name="action">Edit</button>
-  </div>
-  <div>
-    <button (click)="deleteEvent()" type="submit" name="action">Delete</button>
-  </div>
-  <div>
-    <!-- <button (click)="startEvent()" type="submit" name="action">Start Event</button> -->
-    <a [routerLink]="['/event/', event._id, 'active']">Start Event</a>
-  </div>
-
-</form>
-</div>
-
-
 </div>

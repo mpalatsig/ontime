@@ -1,7 +1,7 @@
-<div class="valign-wrapper login" *ngIf="!session.user">
+<div class="row valign-wrapper login" *ngIf="!session.user">
 
-<div class="row">
-  <form class="col s12">
+  <form class="col s12 m6 offset-m3 l4 offset-l4">
+    <h2> Login </h2>
     <div class="row">
       <div class="input-field col s12">
         <input id="username" type="text" class="validate" [(ngModel)]="username" name="username">
@@ -14,14 +14,13 @@
         <label for="password">Password</label>
       </div>
     </div>
+    <p class="error"> {{ error }} </p>
     <button (click)="login()" class="btn waves-effect waves-light light-blue" type="submit" name="action">Login
     <i class="material-icons right">send</i>
-  </button>
+  </button><br><br>
+  <span>Don't have an account?...<a [routerLink]="['/signup']"> Signup Now </a></span>
   </form>
-  <p class="error"> {{ error }} </p>
-  <div class="center-align backlink">
-    <a [routerLink]="['/signup']"> You don't have an account, Go to signup </a>
-  </div>
-</div>
+
+
 
 </div>

@@ -1,27 +1,27 @@
 <div class="container row" *ngIf="user">
 
-
-
   <div *ngIf="events" class="col s12 m6 offset-m3">
 
-  <h4> My Events List </h4><span>
-    <button class="waves-effect waves-light btn light-blue " type="button" name="button" [routerLink]="['/newevent']">Create New Event</button>
-  </span>
-  <span><button class="waves-effect waves-light btn light-blue" type="button" name="button" [routerLink]="['/newteam']">Create New Team</button>
-  </span>
+    <h2> My Events </h2>
+    <button class="waves-effect waves-light btn light-blue right" id="btn1" type="button" name="button" [routerLink]="['/newevent']">New Event</button>
+
+    <button class="waves-effect waves-light btn btn-flat right" id="btn2" type="button" name="button" [routerLink]="['/newteam']">Create Team</button>
+
 
     <div *ngFor="let event of events | async">
-
       <div class="row">
         <div class="col s12">
-          <div class="card light-blue lighten-5">
+          <div class="card white">
             <div class="card-content  light-blue-text text-darken-3">
-              <span class="card-title light-blue-text text-darken-4">Event: {{ event.eventID.summary }}</span>
+              <p class="card-title light-blue-text text-darken-4">{{ event.eventID.summary }}</p><br>
+              <p>Event Starts on:</p>
+              <p>{{ event.eventID.startDate | date: 'dd/MM/yyyy' }}, from {{ event.eventID.startDate | date: 'hh:mm' }} to {{ event.eventID.endDate | date: 'hh:mm' }}</p><br>
+              <p>Description:</p>
               <p>{{ event.eventID.description }}</p>
             </div>
             <div class="card-action">
-              <a class="right-align light-blue-text" [routerLink]="['/event', event.eventID._id]">Edit</a>
-              <a class="right-align light-blue-text" [routerLink]="['/event/', event.eventID._id, 'active']">Start Event</a>
+              <a class="right-align grey-text" [routerLink]="['/event', event.eventID._id]">Edit</a>
+              <a class="right light-blue-text" [routerLink]="['/event/', event.eventID._id, 'active']">Start Event</a>
             </div>
           </div>
         </div>
@@ -29,6 +29,5 @@
 
     </div>
   </div>
-
 
 </div>

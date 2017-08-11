@@ -1,30 +1,22 @@
-<div *ngIf="session.user && session.startLoginCompleted">
+<div class="newteam" *ngIf="session.user && session.startLoginCompleted">
 
-
-
-<div>
-  <a [routerLink]="['/home']"> Go Back to Events </a>
-</div>
-<div>
-  <h1>Create a New Team</h1>
-</div>
-<form enctype="multipart/form-data">
-  <div>
-    <div>
-      <label for="title">Name of the Team</label>
-      <input id="title" type="text" name="teamName" [(ngModel)]="teamName" required>
+    <div class="row">
+      <form class="col s12 m6 offset-m3" enctype="multipart/form-data">
+        <a [routerLink]="['/home']"> < Go Back </a>
+        <h2>Create New Team</h2>
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="title" type="text" class="validate" [(ngModel)]="teamName" name="teamName" required>
+            <label for="title">Name of the Team</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="members" type="text" class="validate" [(ngModel)]="members" name="members">
+            <label for="members">Members</label>
+          </div>
+        </div>
+        <button class="waves-effect waves-light btn light-blue right" (click)="newTeam()" type="submit" name="action">Create</button>
+      </form>
     </div>
-  </div>
-  <div>
-    <div>
-      <label for="members">Members</label>
-      <input id="members" type="text" name="members" [(ngModel)]="members">
-    </div>
-  </div>
-
-  <div>
-    <button (click)="newTeam()" type="submit" name="action">Create</button>
-  </div>
-</form>
-
 </div>

@@ -1,4 +1,4 @@
-<div *ngIf="session.user && session.startLoginCompleted">
+<!-- <div *ngIf="session.user && session.startLoginCompleted">
 
 
 <div>
@@ -19,5 +19,42 @@
     <a [routerLink]="['/team/', team.teamID._id, 'edit']"> Edit </a>
   </div>
 </div>
+
+</div> -->
+
+
+<div class="container row" *ngIf="session.user && session.startLoginCompleted">
+
+  <div *ngIf="teams" class="col s12 m6 offset-m3">
+
+    <a [routerLink]="['/home']"> < Go Back </a>
+
+    <h2> My Teams </h2>
+
+    <button class="waves-effect waves-light btn light-blue right" id="btn1" type="button" name="button" [routerLink]="['/newteam']">New Team</button>
+
+
+
+    <div *ngFor="let team of teams" class="blocky">
+      <div class="row">
+        <div class="col s12">
+          <div class="card white">
+            <div class="card-content  light-blue-text text-darken-3">
+              <p class="light-blue-text text-darken-4">Team:</p><br>
+              <p class="card-title light-blue-text text-darken-4">{{ team.teamID.teamName }}</p>
+              <p class="light-blue-text text-darken-4">Penalties: {{ team.teamID.penalties }}€</p>
+            </div>
+            <div class="card-action">
+              <a class="right-align grey-text" [routerLink]="['/team/', team.teamID._id, 'edit']">Edit</a>
+              <a class="right light-blue-text" [routerLink]="['/team/', team.teamID._id, 'details']">View Details</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
 
 </div>

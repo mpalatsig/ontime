@@ -1,34 +1,27 @@
-<div *ngIf="session.user && session.startLoginCompleted">
+<div class="team row" *ngIf="session.user && session.startLoginCompleted">
+  <div class="acteventcontainer col s12 m6 offset-m3" *ngIf="team">
+    <a [routerLink]="['/teams']">< Go Back </a>
+    <h2>{{team.teamName}}</h2>
+    <div class="row">
+      <div class="card small col s12">
+        <div class="card-content">
+          <form enctype="multipart/form-data">
+            <div>
+              <p class="card-title">Total Accumulated Penalties:</p>
+              <p>This team has accumulated {{team.penalties}}€ during this period</p><br>
+            </div>
+            <div>
+              <p class="card-title"> Members: </p>
+              <ul>
+                <li *ngFor="let attendee of attendees">
+                  <span> {{ attendee.userID.displayName }} </span>
 
-
-
-<div *ngIf="team">
-
-<div>
-  <a [routerLink]="['/home']"> Go Back to Events </a>
-</div>
-<div>
-  <h1> Team: {{team.teamName}}</h1>
-</div>
-
-<div>
-  <div>
-    <p>Total Money to Pay:</p>
-    <p>{{team.penalties}} EUR</p>
-  </div>
-</div>
-
-<div>
-      <div> Attendees:
-        <ul>
-          <li *ngFor="let attendee of attendees">
-            <span > {{ attendee.userID.displayName }} </span>
-
-          </li>
-        </ul>
+                </li>
+              </ul>
+            </div>
+          </form>
+        </div>
       </div>
-    </div>
-
+    <div>
   </div>
-
-  </div>
+</div>

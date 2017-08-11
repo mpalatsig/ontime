@@ -2,6 +2,15 @@
 
 body {
   margin: 0px;
+  background-color: #fafafa;
+}
+
+h2 {
+  color: #03a9f4;
+}
+
+h3 {
+  color: #03a9f4;
 }
 
 .app-root {

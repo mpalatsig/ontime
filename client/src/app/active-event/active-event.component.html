@@ -1,53 +1,47 @@
-<div *ngIf="session.user && session.startLoginCompleted">
-
-
-
-<div *ngIf="event">
-  <div>
-    <a [routerLink]="['/home']"> Go Back to Events </a>
-  </div>
-  <div>
-    <h1> Active event: {{event.summary}}</h1>
-  </div>
-  <form enctype="multipart/form-data">
-
-    <div>
-      <p for="date-name-input"> Started at {{event.startDate | date: 'dd/MM/yyyy' }}</p>
-
-    </div>
-    <div>
-      <p for="date-name-input"> End Date at {{event.endDate | date: 'dd/MM/yyyy' }}</p>
-    </div>
-    <div>
-      <div>
-        <p>Description</p>
-        <p>{{event.description}}</p>
+<div class="actevent row" *ngIf="session.user && session.startLoginCompleted">
+  <div class="acteventcontainer col s12 m6 offset-m3" *ngIf="event">
+    <a [routerLink]="['/home']">< Go Back </a>
+    <h2>{{event.summary}}</h2>
+    <div class="row">
+      <div class="card large col s12">
+        <div class="card-content">
+          <form enctype="multipart/form-data">
+            <div>
+              <p for="date-name-input"> Started at {{event.startDate | date: 'dd/MM/yyyy' }}</p>
+            </div>
+            <div>
+              <p for="date-name-input"> End Date at {{event.endDate | date: 'dd/MM/yyyy' }}</p>
+            </div>
+            <div>
+              <div>
+                <p>Description</p>
+                <p>{{event.description}}</p>
+              </div>
+            </div>
+            <div>
+              <div> Attendees:
+                <ul>
+                  <li *ngFor="let attendee of attendees">
+                    <span *ngIf="(attendee.userID.displayName != '')"> {{ attendee.userID.displayName }} </span><span *ngIf="(attendee.userID.displayName == '' && attendee.userID.username != '')"> {{ attendee.userID.username }} </span><span *ngIf="(attendee.userID.displayName == '' && attendee.userID.username == '')"> {{ attendee.userID.email }} </span>
+                    <span *ngIf="(attendee.timeLate == null && event.status == true)"> <button (click)="setArrival(attendee._id)" type="submit" name="button">Set Time Arrival</button> </span>
+                    <span *ngIf="(attendee.timeLate > 0)">{{ attendee.timeLate }} minutes late</span>
+                    <span *ngIf="(attendee.timeLate <= 0 && attendee.timeLate != null)">On time!</span>
+                    <span *ngIf="(attendee.timeLate == null && event.status == false)"> <button (click)="setArrival(attendee._id)" type="submit" name="button">Mark as On Time</button> </span>
+                    <span *ngIf="(attendee.timeLate == null && event.status == false)"> <button (click)="justify()" type="submit" name="button">Mark as Justified</button> </span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div>Total Penalties to Pay: {{ event.penaltyAmount }} EUR </div>
+            <div *ngIf="(event.status == false)">
+              <button class="waves-effect waves-light btn light-blue right" (click)="startEvent()" type="submit" name="action">Start Event</button>
+            </div>
+            <div *ngIf="(event.status == true)">
+              <button class="waves-effect waves-light btn light-blue right" (click)="stopEvent()" type="submit" name="action">Finish Event</button>
+            </div>
+          </form>
+        </div>
       </div>
-    </div>
     <div>
-      <div> Attendees:
-        <ul>
-          <li *ngFor="let attendee of attendees">
-            <span *ngIf="(attendee.userID.displayName != '')"> {{ attendee.userID.displayName }} </span><span *ngIf="(attendee.userID.displayName == '' && attendee.userID.username != '')"> {{ attendee.userID.username }} </span><span *ngIf="(attendee.userID.displayName == '' && attendee.userID.username == '')"> {{ attendee.userID.email }} </span>
-            <span *ngIf="(attendee.timeLate == null && event.status == true)"> <button (click)="setArrival(attendee._id)" type="submit" name="button">Set Time Arrival</button> </span>
-            <span *ngIf="(attendee.timeLate > 0)">{{ attendee.timeLate }} minutes late</span>
-            <span *ngIf="(attendee.timeLate <= 0 && attendee.timeLate != null)">On time!</span>
-            <span *ngIf="(attendee.timeLate == null && event.status == false)"> <button (click)="setArrival(attendee._id)" type="submit" name="button">Mark as On Time</button> </span>
-            <span *ngIf="(attendee.timeLate == null && event.status == false)"> <button (click)="justify()" type="submit" name="button">Mark as Justified</button> </span>
-          </li>
-        </ul>
-      </div>
-    </div>
-    <div>Total Penalties to Pay: {{ event.penaltyAmount }} EUR </div>
-    <div *ngIf="(event.status == false)">
-      <button (click)="startEvent()" type="submit" name="action">Start Event</button>
-    </div>
-    <div *ngIf="(event.status == true)">
-      <button (click)="stopEvent()" type="submit" name="action">Finish Event</button>
-    </div>
-
-  </form>
-</div>
-
-
+  </div>
 </div>

@@ -1,57 +1,31 @@
-<div class="valign-wrapper signup" *ngIf="!session.user">
+<div class="row valign-wrapper signup" *ngIf="!session.user">
 
-  <div class="row">
-    <form class="col s12">
-      <div class="row">
-        <div class="input-field col s12">
-          <input id="email" type="email" class="validate" [(ngModel)]="email" name="email">
-          <label for="email">Email</label>
-        </div>
+  <form class="col s12 m6 offset-m3 l4 offset-l4 ">
+    <h2> Signup </h2>
+    <div class="row">
+      <div class="input-field col s12">
+        <input id="email" type="email" class="validate" [(ngModel)]="email" name="email">
+        <label for="email">Email</label>
       </div>
-      <div class="row">
-        <div class="input-field col s12">
-          <input id="username" type="text" class="validate" [(ngModel)]="username" name="username">
-          <label for="username">Username</label>
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s12">
-          <input id="password" type="password" class="validate" [(ngModel)]="password" name="password">
-          <label for="password">Password</label>
-        </div>
-      </div>
-      <div class="row">
-      <button (click)="signup()" class="center-align btn waves-effect waves-light" type="submit" name="action">Signup
-      <i class="material-icons right">send</i>
-    </button>
     </div>
-    </form>
+    <div class="row">
+      <div class="input-field col s12">
+        <input id="username" type="text" class="validate" [(ngModel)]="username" name="username">
+        <label for="username">Username</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <input id="password" type="password" class="validate" [(ngModel)]="password" name="password">
+        <label for="password">Password</label>
+      </div>
+    </div>
     <p class="error"> {{ error }} </p>
-    <div class="backlink">
-      <a [routerLink]="['/login']"> Already with Account, Go to Login </a>
-    </div>
-  </div>
+    <button (click)="signup()" class="btn waves-effect waves-light light-blue" type="submit" name="action">Signup
+      <i class="material-icons right">send</i>
+    </button><br><br>
+    <span>Already with Account?...<a [routerLink]="['/login']"> Login Now </a></span>
+  </form>
 
-
-
-<!--
-<form>
-  <h2> Signup </h2>
-  <label> Username </label>
-  <input type="text" [(ngModel)]="username" name="username"/>
-  <br>
-  <label> Email </label>
-  <input type="email" [(ngModel)]="email" name="email"/>
-  <br>
-  <label> Password </label>
-  <input type="password" [(ngModel)]="password" name="password"/>
-
-  <button (click)="signup()"> signup </button>
-
-</form>
-
-<p class="error"> {{ error }} </p>
-
-<a [routerLink]="['/login']"> Already has an account, Go to login </a> -->
 
 </div>
